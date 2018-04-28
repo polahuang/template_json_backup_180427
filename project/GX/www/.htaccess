@@ -1,0 +1,6 @@
+# 設定檔案快取時間
+<IfModule mod_headers.c>
+  <filesMatch "\.(css|ico|pdf|flv|jpg|jpeg|png|gif|js|swf)$">
+    Header set Cache-Control "max-age=7200, public"
+  </filesMatch>
+</IfModule>
