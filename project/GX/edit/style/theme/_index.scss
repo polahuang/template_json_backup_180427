@@ -82,7 +82,6 @@
 
 .banner-solution-food {
   background-image: url("../image/Generic/cloud-bg.png"), url("../image/Generic/bg-red.jpg");
-  padding-bottom: 300px;
 
   hgroup {
     @include breakpoint($pad-down) {
@@ -126,7 +125,6 @@
 
 .banner-solution-retail {
   background-image: url("../image/Generic/cloud-bg.png"), url("../image/Generic/bg-blue.jpg");
-  padding-bottom: 300px;
 
   hgroup {
     @include breakpoint($pad-down) {
@@ -358,7 +356,6 @@
 
       img {
         @include img('index/banner-1.jpg');
-        padding-bottom: 300px;
       }
 
       hgroup h4 {
@@ -386,7 +383,6 @@
         @include img_mobile('index/banner-2_xs.jpg');
         @extend %scale-2x1_desktop;
         @extend %scale-1x1-4_mobile;
-        padding-bottom: 300px;
       }
     }
 
@@ -398,7 +394,6 @@
         hgroup img {
           @include img('index/banner-31.jpg');
           @extend %scale-5x1;
-          padding-bottom: 300px;
         }
         h3 {
           @include breakpoint($pad-down) {
@@ -456,7 +451,6 @@
 
         figure img {
           @include img('index/banner-3.jpg');
-          padding-bottom: 300px;
         }
       }
     }
@@ -504,7 +498,6 @@
       img {
         @extend %scale-3x2_desktop;
         @extend %scale-4x3_mobile;
-        padding-bottom: 300px;
       }
     }
   }
@@ -660,7 +653,6 @@
   @extend %section-img-right;
   @extend %section-img-up_mobile;
   @include bg("index/jabezpos-bg.jpg");
-  padding-bottom: 300px;
   background-position-y: 25px;
   background-color: #49aff5;
   @include breakpoint($pad-down) {
