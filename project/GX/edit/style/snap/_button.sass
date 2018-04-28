@@ -1,0 +1,50 @@
+
+@mixin btn-default($font-sise, $font-color, $bg-color)
+  $padding: 16px
+
+  border: none
+  a
+    font-size: $font-sise
+    color: $font-color
+    background-color: $bg-color
+    color: #fff
+    padding: 6px $padding
+    letter-spacing: 1px
+    display: block
+    white-space: nowrap
+    border-radius: 4px
+    border: solid 1px darken($bg-color, 2%)
+    position: relative
+    transition: all .3s ease-in-out
+    &::after
+      content: '>'
+      display: inline-block
+      opacity: 0
+      position: absolute
+      right: $padding
+      font-size: $font-sise
+      transition: all .3s ease-in-out
+    &:hover,
+    &.active
+      border-color: darken($bg-color, 15%)
+      background-color: darken($bg-color, 10%)
+      padding-right: $padding*2
+      &::after
+        opacity: 1
+        right: 12px
+
+%btn-default
+  +btn-default(%h6 ,$white, $blue)
+
+//==============================================================================
+%btn-full
+  &, & a
+    position: absolute
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+    bottom: 0
+    right: 0
+    background-color: transparent
+    border: none

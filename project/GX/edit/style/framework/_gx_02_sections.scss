@@ -1,0 +1,857 @@
+
+  /*splitfilename=gx_02_sections.css*/
+//
+//
+//
+//
+//
+//==============================================================================
+//
+// body
+//
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+%aside-none {
+  main > aside {
+    display: none;
+    content: '';
+  }
+}
+
+%aside-bottom {
+  main > aside {
+    position: relative;
+  }
+}
+
+%aside-right {
+  $article: 70%;
+
+  main > article {
+    width: $article;
+    float: left;
+  }
+
+  main > aside {
+    margin-left: $article;
+  }
+}
+
+%aside-right-max-width {
+  $article: 70%;
+
+  main {
+    max-width: $content;
+    margin: 0 auto;
+  }
+
+  main > article {
+    width: $article;
+    float: left;
+  }
+
+  main > aside {
+    margin-left: $article;
+  }
+}
+
+%aside-right-fix {
+  main > aside {
+    position: fixed;
+    top: 0;
+    right: 0;
+    min-height: 100%;
+  }
+}
+
+%aside-left {
+  $article: 70%;
+
+  main > article {
+    width: $article;
+    float: right;
+  }
+
+  main > aside {
+    margin-right: $article;
+  }
+}
+
+%aside-left-max-width {
+  $article: 70%;
+
+  main {
+    max-width: $content;
+    margin: 0 auto;
+  }
+
+  main > article {
+    width: $article;
+    float: right;
+  }
+
+  main > aside {
+    margin-right: $article;
+  }
+}
+
+%aside-left-fix {
+  main > aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+  }
+}
+//body[class*='header']:not(.header-center) {
+
+%header-all {
+  main {
+    > .pagination-bottom,
+     > .pagination-top,
+     > article,
+     > aside,
+    > .breadcrumb {
+      width: 100%;
+      float: left;
+    }
+  }
+
+  > nav {
+    float: left;
+  }
+
+  header {
+    .logo {
+      width: 100%;
+      max-width: inherit;
+    }
+
+    .menu {
+      width: 100%;
+
+      ul li {
+        float: left;
+        width: 100%;
+        border-bottom: solid 1px #dadada;
+      }
+    }
+  }
+}
+
+%header-left {
+  $header: 200px;
+  @extend %header-all;
+
+  main {
+    margin-left: $header;
+  }
+
+  & > header {
+    width: $header;
+    float: left;
+  }
+}
+
+%header-right {
+  $header: 200px;
+  @extend %header-all;
+
+  main {
+    margin-right: $header;
+  }
+
+  & > header {
+    width: $header;
+    float: right;
+  }
+}
+
+%header-left-fix,
+%header-right-fix {
+  @extend %header-all;
+
+  > header {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow-y: scroll;
+  }
+}
+
+%header-left-fix {
+  $header: 200px;
+  @extend %header-all;
+
+  & > header {
+    width: $header;
+    left: 0;
+  }
+
+  details,
+  footer,
+  main,
+  nav {
+    margin-left: $header;
+  }
+}
+
+%header-right-fix {
+  $header: 200px;
+  @extend %header-all;
+
+  & > header {
+    width: $header;
+    right: 0;
+  }
+
+  details,
+  footer,
+  main,
+  nav {
+    margin-right: $header;
+  }
+}
+
+%header-center {
+  header {
+    text-align: center;
+
+    .logo {
+      display: block;
+      float: none;
+      max-width: 100%;
+    }
+
+    .menu {
+      float: none;
+    }
+  }
+}
+
+%art {
+  $wisth: 25%;
+
+  & > header {
+    width: $wisth;
+    float: left;
+  }
+
+  & > footer {
+    width: $wisth;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+  }
+
+  main {
+    width: $wisth * 2;
+    margin-left: $wisth;
+
+    > .pagination-bottom,
+     > .pagination-top,
+    > .breadcrumb {
+      width: 100%;
+      float: left;
+    }
+
+    > aside,
+    > article {
+      width: $wisth * 2;
+      float: left;
+    }
+  }
+}
+
+%nav-all {
+  main {
+    max-width: $content;
+    margin: 0 auto;
+  }
+
+  > nav {
+    position: absolute;
+    max-width: $content;
+    margin-left: auto;
+    margin-right: auto;
+
+    a {
+      display: block;
+    }
+
+    .content {
+      > h1,
+       > h3,
+       > h4,
+       > h5,
+       > h6,
+      > h2 {
+        float: none;
+        display: block;
+      }
+
+      > div {
+        display: block;
+      }
+    }
+  }
+}
+
+%nav-left-max-width {
+  $width: 200px;
+  @extend %nav-all;
+
+  main {
+    padding-left: $width;
+  }
+
+  > nav {
+    right: $content - $width;
+    left: 0;
+    width: $width;
+    @include breakpoint($desk-down) {
+      right: inherit;
+    }
+  }
+}
+
+%nav-right-max-width {
+  $width: 200px;
+  @extend %nav-all;
+
+  main {
+    padding-right: $width;
+  }
+
+  > nav {
+    left: $content - $width;
+    right: 0;
+    width: $width;
+    @include breakpoint($desk-down) {
+      left: inherit;
+    }
+  }
+}
+
+%nav-left {
+  $width: 200px;
+  @extend %nav-all;
+
+  main {
+    margin-left: $width;
+    max-width: inherit;
+  }
+
+  > nav {
+    width: $width;
+  }
+}
+
+%nav-sticky {
+  @extend %nav-all;
+
+  > nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    float: left;
+
+    .content {
+      height: 100vh;
+      width: 100%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+}
+// LIST
+
+%list-all {
+  > main > article > section > div > ul,
+  > main > aside > section > div > ul {
+    overflow: hidden;
+
+    li {
+      @extend %clearfix;
+    }
+  }
+}
+
+%article-list-1 {
+  @extend %list-all;
+
+  > main > article > section > div > ul:first-of-type {
+    > li {
+      @extend %span-1;
+    }
+  }
+}
+
+%aside-list-1 {
+  @extend %list-all;
+
+  > main > aside > section > ul:first-of-type {
+    > li {
+      @extend %span-1;
+    }
+  }
+}
+
+%article-list-2 {
+  @extend %list-all;
+
+  > main > article > section > div > ul:first-of-type {
+    > li {
+      @extend %span-2;
+    }
+  }
+}
+
+%aside-list-2 {
+  @extend %list-all;
+
+  > main > aside > section > ul:first-of-type {
+    > li {
+      @extend %span-2;
+    }
+  }
+}
+
+%article-list-3 {
+  @extend %list-all;
+
+  > main > article > section > div > ul:first-of-type {
+    > li {
+      @extend %span-3;
+    }
+  }
+}
+
+%aside-list-3 {
+  @extend %list-all;
+
+  > main > aside > section > ul:first-of-type {
+    > li {
+      @extend %span-3;
+    }
+  }
+}
+
+%article-list-4 {
+  @extend %list-all;
+
+  > main > article > section > div > ul:first-of-type {
+    > li {
+      @extend %span-4;
+    }
+  }
+}
+
+%aside-list-4 {
+  @extend %list-all;
+
+  > main > aside > section > ul:first-of-type {
+    > li {
+      @extend %span-4;
+    }
+  }
+}
+
+%article-list-5 {
+  @extend %list-all;
+
+  > main > article > section > div > ul:first-of-type {
+    > li {
+      @extend %span-5;
+    }
+  }
+}
+
+%aside-list-5 {
+  @extend %list-all;
+
+  > main > aside > section > ul:first-of-type {
+    > li {
+      @extend %span-5;
+    }
+  }
+}
+//==============================================================================
+//
+// article
+//
+
+main > article {
+  @extend %clearfix;
+}
+// 網頁寬度
+//
+
+.content {
+  max-width: $content;
+  margin: 0 auto;
+  @extend %clearfix;
+}
+//==============================================================================
+//
+// section
+//
+
+section {
+  @extend %clearfix;
+  overflow: hidden;
+  text-align: center;
+}
+
+main > article > section,
+main > aside > section {
+  position: relative;
+  @extend %clearfix;
+}
+// data-tab-content
+
+[data-tab-content] {
+  display: none;
+
+  &.active {
+    display: block;
+    width: 100%;
+  }
+}
+// .pagination (分頁按鈕)
+
+section[class*='pagination'] {
+  padding: 35px 0;
+  @extend %clearfix;
+  position: relative;
+  z-index: 0;
+
+  ol {
+    display: inline-block;
+  }
+
+  li {
+    display: inline-block;
+    float: left;
+
+    a {
+      color: black;
+      padding: 8px 16px;
+      border: 1px solid #ddd;
+
+      &.active {
+        background-color: #4CAF50;
+        color: white;
+        border: 1px solid #4CAF50;
+      }
+
+      &:hover:not(.active) {
+        background-color: #ddd;
+      }
+    }
+  }
+}
+// breadcrumb (面包屑)
+
+section.breadcrumb {
+  @extend %clearfix;
+  position: relative;
+  z-index: 0;
+  padding: 8px 16px;
+  list-style: none;
+
+  li {
+    display: inline;
+
+    &+li:before {
+      padding: 8px;
+      color: black;
+      content: "/\00a0";
+    }
+
+    &:last-child a {
+      color: black;
+      cursor: default;
+    }
+
+    a {
+      display: inline-block;
+      color: green;
+    }
+  }
+}
+//==============================================================================
+//
+// h1, h2, h3, h4, h5, h6
+//
+
+body {
+  font-size: 100%;
+}
+@mixin font-size($sizeValue: 12) {
+  font-size: $sizeValue + px; //fallback for old browsers
+  font-size: (0.0625 * $sizeValue) + rem;
+}
+@mixin line-height($heightValue: 20) {
+  line-height: $heightValue + px; //fallback for old browsers
+  line-height: (0.0625 * $heightValue) + rem;
+}
+@mixin rhythm($sizeValue: 12, $heightValue: 20) {
+  @include font-size($sizeValue);
+  @include line-height($heightValue);
+}
+//
+
+%h1,
+.h1,
+h1 {
+  @include rhythm(52, 67);
+  @include breakpoint($pad-down) {
+    @include rhythm(30, 45);
+  }
+
+  small {
+    @extend %h2;
+  }
+}
+
+%h2,
+.h2,
+h2 {
+  @include rhythm(42, 57);
+  @include breakpoint($pad-down) {
+    @include rhythm(25, 38);
+  }
+
+  small {
+    @extend %h3;
+  }
+}
+
+%h3,
+.h3,
+h3 {
+  @include rhythm(32, 42);
+  @include breakpoint($pad-down) {
+    @include rhythm(22, 34);
+  }
+
+  small {
+    @extend %h4;
+  }
+}
+
+%h4,
+.h4,
+h4 {
+  @include rhythm(26, 36);
+  @include breakpoint($pad-down) {
+    @include rhythm(18, 28);
+  }
+
+  small {
+    @extend %h5;
+  }
+}
+
+%h5,
+.h5,
+h5 {
+  @include rhythm(17, 30);
+  @include breakpoint($pad-down) {
+    @include rhythm(16, 24);
+  }
+
+  small {
+    @extend %h6;
+  }
+}
+
+%h6,
+.h6,
+h6 {
+  @include rhythm(15, 22);
+  @include breakpoint($pad-down) {
+    @include rhythm(13, 20);
+  }
+
+  small {
+    @extend %small;
+  }
+}
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// p,
+// small {
+//   z-index: 1;
+// }
+//==============================================================================
+//
+// nav
+//
+
+nav {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    display: inline-block;
+    //float: left;
+    margin: 0 5px;
+    @extend %h5;
+    font-weight: bold;
+  }
+  ol {
+    margin: 0 auto;
+  }
+}
+
+@mixin nav($link-height) {
+  @extend %clearfix;
+  clear: both;
+  width: 100%;
+
+  article {
+    @extend %content;
+    @extend %clearfix;
+    @include breakpoint($pad-down) {
+        padding: 0;
+    }
+
+  }
+
+  a[data-type="button"] {
+    @include btn-text(#333333);
+    float: right;
+    height: $link-height;
+    line-height: $link-height;
+    display: none;
+    @include breakpoint($pad-down) {
+      display: inline-block;
+      padding-right: 15px;
+    }
+
+    img {
+      $color: #888888;
+      @include svg("data:image/svg+xml,%3Csvg fill='#{$color}' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='200px' height='200px' viewBox='0 0 200 200' enable-background='new 0 0 200 200' xml:space='preserve'%3E%3Cpath d='M108.932,147.827c-4.97,5.708-13.111,5.708-18.102,0L12.711,58.568c-4.97-5.692-2.842-10.351,4.699-10.351h164.944 c7.574,0,9.685,4.666,4.692,10.351L108.932,147.827z'/%3E%3C/svg%3E");
+      @include scale(15px,15px);
+      position: relative;
+      top: -4px;
+      margin-left: 3px;
+    }
+  }
+
+  h1 {
+    height: $link-height;
+    line-height: $link-height;
+    @include breakpoint($pad-down) {
+      margin-left: 15px;
+    }
+  }
+
+  ol {
+    @include breakpoint($pad-down) {
+      text-align: center;
+      clear: both;
+    }
+
+    li {
+      display: inline-block;
+
+      a {
+        display: block;
+        height: $link-height;
+        line-height: $link-height;
+      }
+    }
+  }
+}
+//==============================================================================
+//
+// aside
+//
+
+main > aside {
+  @extend %clearfix;
+  position: relative;
+  //z-index: 0;
+}
+//==============================================================================
+//
+// header
+//
+
+//==============================================================================
+//
+// footer
+//
+
+body > footer {
+  position: relative;
+
+  section {
+    position: relative;
+  }
+
+  .copyright {
+    padding: 15px;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+
+  h3 {
+    @extend %h4;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    @extend %h5;
+    margin-bottom: 10px;
+  }
+
+  h5 {
+    @extend %h6;
+    background-color: #ccc;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 2px 6px;
+  }
+
+  h6 {
+    @extend %small;
+  }
+
+  nav figure {
+    position: relative;
+  }
+}
+//==============================================================================
+//
+// address
+//
+
+address {
+  text-align: left;
+  display: inline-block;
+}
+//==============================================================================
+/*split*/

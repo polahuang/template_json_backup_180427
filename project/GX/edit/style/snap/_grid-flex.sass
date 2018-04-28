@@ -1,0 +1,53 @@
+$n: 12
+
+=col($bp)
+  @for $i from 1 through $n
+    .col#{$bp}-#{$i}
+      flex: 0 0 (100% * $i / $n)
+
++col('')
+
++media-breakpoint-up(tablet)
+  +col(-tablet)
+
++media-breakpoint-up(desktop)
+  +col(-desktop)
+
+.row
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  position: relative
+  width: 100%
+  // &:after
+  //   visibility: hidden
+  //   display: block
+  //   font-size: 0
+  //   content: " "
+  //   clear: both
+  //   height: 0
+.col
+  flex-direction: column
+.col-right
+  order: 1
+.col-left
+  order: 2
+  margin-top: 40px
+
+.a-items
+  align-items: center
+.flex-end
+  align-items: flex-end
+
+.j-content
+  justify-content: space-between
+
+.inline
+  display: inline-flex
+
++media-breakpoint-up(tablet)
+  .col-right
+    order: 2
+  .col-left
+    order: 1
+    margin-top: 0

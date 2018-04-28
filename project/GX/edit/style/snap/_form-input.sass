@@ -1,0 +1,163 @@
+//------------------------------------------------------------------------------
+.checkbox-label
+  display: inline-block
+  position: relative
+  padding-left: 30px
+  margin-bottom: 12px
+  cursor: pointer
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  color: #888
+  float: left
+  margin-left: 18px
+  margin-top: 2px
+  input
+    position: absolute
+    opacity: 0
+.checkmark
+  position: absolute
+  top: 1px
+  left: 0
+  height: 18px
+  width: 18px
+  border: solid 1px #ccc
+.checkbox-label
+  &:hover input ~ .checkmark
+  input:checked ~ .checkmark
+    background-color: #2196F3
+    border: solid 1px #ccc
+.checkmark:after
+  content: ""
+  position: absolute
+  display: none
+.checkbox-label
+  input:checked ~ .checkmark:after
+    display: block
+  .checkmark:after
+    left: 6px
+    top: 2px
+    width: 5px
+    height: 10px
+    border: solid white
+    border-width: 0 2px 2px 0
+    -webkit-transform: rotate(45deg)
+    -ms-transform: rotate(45deg)
+    transform: rotate(45deg)
++media-breakpoint-down(tablet)
+  .checkbox-label
+    margin-top: 20px
+    line-height: 20px
+//------------------------------------------------------------------------------
+input[type=checkbox].css-checkbox
+  position: absolute
+  z-index: -1000
+  left: -1000px
+  overflow: hidden
+  clip: rect(0 0 0 0)
+  height: 1px
+  width: 1px
+  margin: -1px
+  padding: 0
+  border: 0
+  + label.css-label
+    padding-left: 24px
+    height: 18px
+    display: inline-block
+    line-height: 19px
+    background-repeat: no-repeat
+    background-position: 0 0
+    font-size: 19px
+    vertical-align: middle
+    cursor: pointer
+    font-size: 17px
+    font-weight: 100
+    +breakpoint($pads)
+      font-size: 14px
+  &:checked + label.css-label
+    background-position: 0 -18px
+label.css-label
+  //background-image: url(../img/csscheckbox_584715bec9b728f21a7a9ecb1b4eecf9.png)
+  background-image: url(../img/csscheckbox_67c83917465692304d237c7e9e0533ca.png)
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+//------------------------------------------------------------------------------
+input[type=checkbox].sqr-checkbox
+  position: absolute
+  z-index: -1000
+  left: -1000px
+  overflow: hidden
+  clip: rect(0 0 0 0)
+  height: 1px
+  width: 1px
+  margin: -1px
+  padding: 0
+  border: 0
+  + label.sqr-label
+    padding-left: 24px
+    height: inherit
+    display: inline-block
+    line-height: 19px
+    background-repeat: no-repeat
+    background-position: 0 0
+    font-size: 19px
+    vertical-align: middle
+    cursor: pointer
+    font-size: 17px
+    font-weight: 100
+    +breakpoint($pads)
+      font-size: 14px
+    p
+      position: relative
+      top: -5px
+  &:checked + label.sqr-label
+    background-position: 0 0
+    background-image: url(../img/csscheckbox_584715bec9b728f21a7a9ecb1b4eecf96.png)
+label.sqr-label
+  background-image: url(../img/csscheckbox_584715bec9b728f21a7a9ecb1b4eecf95.png)
+//------------------------------------------------------------------------------
+.radioArea
+  display: inline-block
+  padding-right: 20px
+  +breakpoint($pads)
+    margin: 5px 0
+//------------------------------------------------------------------------------
+input[type=radio].css-checkbox_c
+  position: absolute
+  z-index: -1000
+  left: -1000px
+  overflow: hidden
+  clip: rect(0 0 0 0)
+  height: 1px
+  width: 1px
+  margin: -1px
+  padding: 0
+  border: 0
+  + label.css-label_c
+    padding-left: 23px
+    height: 18px
+    display: inline-block
+    line-height: 18px
+    background-repeat: no-repeat
+    background-position: 0 0
+    font-size: 18px
+    vertical-align: middle
+    cursor: pointer
+    +breakpoint($padm)
+      font-size: 14px
+  &:checked + label.css-label_c
+    background-position: 0 -18px
+//------------------------------------------------------------------------------
+label.css-label_c
+  background-image: url(../img/csscheckbox_67c83917465692304d237c7e9e0533ca.png)
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none

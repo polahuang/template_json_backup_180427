@@ -1,0 +1,379 @@
+$height-base: 60px
+#menu
+  .row > div
+    padding: 0
+.menu
+  position: fixed
+  top: $height-base + 1
+  left: 0
+  width: 100%
+  max-height: 620px
+  z-index: 9999
+  transition: all .5s ease-in-out
+  height: 0
+  visibility: hidden
+  //display: none
+  overflow: hidden
+  background-color: #f8f8f8
+  box-shadow: 0 1px 8px rgba(100, 100, 100, 0.6)
+  &.show
+    display: block
+    visibility: visible
+    height: 620px
+  .wrap
+    max-width: 1200px
+    margin: 0 auto
+  ul li
+    display: block
+    text-align: left
+  img
+    height: auto
+    padding-bottom: 0
+
+.menu-box
+  margin-left: 170px
+  min-height: 620px
+  max-height: 620px
+  background-color: #FFF
+  //padding: 22px 0
+  position: relative
+
+.main-list, .display-area
+  display: inline-block
+  vertical-align: top
+
+.main-list
+  width: 270px
+  position: relative
+  z-index: 1
+  float: left
+  &:after
+    content: ""
+    position: absolute
+    left: 270px
+    top: 0
+    height: 576px
+    width: 1px
+    background: #e1e1e1
+
+#btn_closemenu
+  display: inline-block
+  position: absolute
+  right: 5px
+  top: 5px
+  cursor: pointer
+  z-index: 3
+  font-style: normal
+  font-size: 20px
+  padding: 0px 8px 0
+  color: rgba(0, 0, 0, 0.5)
+  &:hover
+    color: rgba(0, 0, 0, 0.8)
+
+
+  // width: 100%
+  // height: 620px
+.display-area
+  //width: calc(100% - 280px)
+  width: 100%
+  padding-left: 270px
+  position: absolute
+  //top: 20px
+  left: 0
+  z-index: 0
+
+.category
+  background-image: url(../image/header/category_bg.jpg)
+  background-repeat: no-repeat
+  line-height: 24px
+  padding-left: 10px
+
+.prod-nav
+  a
+    display: block
+    padding: 10px 20px
+    position: relative
+    &:hover,&.active
+      color: #FFF
+      background-color: #0c3cbc
+    // &:hover:after, &.active:after
+    //   content: ""
+    //   display: inline-block
+    //   border-style: solid
+    //   border-width: 6px
+    //   position: absolute
+    //   right: 0
+    //   top: 16px
+
+// .overview
+//   &:after
+//     content: ""
+//     display: block
+//     width: 96%
+//     height: 1px
+//     background: #fafafa
+//     margin: 10px auto
+
+//   a
+//     display: block
+//     background-color: #FFF
+//     color: #232323
+//     font-weight: 700
+//     border-radius: 4px
+//     padding: 10px
+//     margin: 10px 15px
+//     width: 30%
+//     &:hover
+//       box-shadow: 0 0 20px rgba(100,100,100,.2)
+// .view
+//   display: inline-block
+//   vertical-align: sub
+//   float: right
+//   width: 20px
+//   height: 20px
+//   background-image: url("../image/header/more.svg")
+//   background-repeat: no-repeat
+//   background-size: contain
+
+.title
+  padding: 10px 15px
+
+.features-nav,.prod-info
+  width: 50%
+  float: left
+  display: inline-block
+  vertical-align: top
+  position: relative
+  text-align: left
+
+.prod-info
+  text-align: center
+  &:before
+    content: ""
+    position: absolute
+    left: 0
+    top: 0
+    height: 576px
+    width: 1px
+    background: #e1e1e1
+  p
+    font-size: .9em
+    padding: 10px 40px
+    color: #555
+    line-height: 1.4
+  a
+    color: #0c3cbc
+    &:hover
+      color: #032fa2
+  .prod-img
+    max-width: 100%
+    padding: 0 12%
+  .datatarget
+    display: none
+    &.active
+      display: block
+
+
+.prod-img
+  width: 300px
+  margin: 10px auto
+
+.prod-features
+  display: block
+  border-bottom: solid 1px #eaeaea
+  min-height: 46px
+  line-height: 46px
+  // border-radius: 4px
+  // padding: 10px
+  // margin: 8px 15px
+  // min-height: 100px
+  h4
+    font-size: 1em
+  h5
+    font-size: .8em
+.sub-group
+  margin: 0 0 10px
+  padding-left: 20px
+  font-size: 15px
+  line-height: 22px
+  color: #777
+  background-color: #f8f8f8
+  padding: 0 15px
+  border-bottom: solid 1px #eee
+
+
+.features-nav .first-title
+  margin-bottom: 16px
+  border: none
+  min-height: inherit
+  line-height: inherit
+
+
+
+
+// feature
+.f-icon, .f-content, .img-icon
+  display: inline-block
+  vertical-align: middle
+.f-icon
+  width: 60px
+  text-align: center
+.f-content
+  width: calc(100% - 70px)
+  position: relative
+  i
+    // position: absolute
+    // top: -15px
+    // right: 0
+    font-size: 2em
+    vertical-align: middle
+.img-icon
+  // width: 55px
+  // height: 79px
+  width: 30px
+  height: 30px
+  background-repeat: no-repeat
+  background-size: contain
+  background-position: center
+  margin: 0 10px 0 20px
+
+.v1-icon
+  background-image: url("../image/header/icon-v1.jpg")
+.t80-icon
+  background-image: url("../image/header/icon-t80.jpg")
+.t1-icon
+  background-image: url("../image/header/icon-t1.jpg")
+.kds-icon
+  background-image: url("../image/header/icon-kds.jpg")
+.bpos-icon
+  background-image: url("../image/header/icon-bpos.jpg")
+.b1pos-icon
+  background-image: url("../image/header/icon-b1pos.jpg")
+.cloud2erp-icon
+  background-image: url("../image/header/icon-cloud2erp.jpg")
+.jabezpos-icon
+  background-image: url("../image/header/icon-jabezpos.jpg")
+.webmenu-icon
+  background-image: url("../image/header/icon-webmenu.jpg")
+
+
+
+// hardware
+.h-item
+  display: block
+  text-align: center
+  margin: 20px 15px
+  padding: 10px
+  border-radius: 4px
+  img
+    width: auto
+    margin: 0 auto
+.h-name
+  margin-top: 10px
+.pl-20
+  padding: 5px 0 5px 20px
+
+//------------------------------------------------------------------------------
+$menu-padding-left: 30px
+.prod-nav
+  $color: #2969cb
+  a
+    padding: 7px $menu-padding-left
+    font-size: 15px
+  a::before
+    display: inline-block
+    content: ''
+    width: 5px
+    height: 25px
+    position: absolute
+    left: 0
+  a:hover,a.active
+    color: $color
+    background-color: white
+    &::before
+      background-color: $color
+  #retial_menu_0,
+  #restaurant_menu_0
+    padding: 20px $menu-padding-left 10px
+    font-weight: bold
+    font-size: 18px
+
+  .category
+    background-image: none
+    background-color: #eee
+    color: #444
+    padding-left: $menu-padding-left
+    margin: 10px 0
+    font-size: 15px
+
+.menu
+  .f-icon,
+  .img-icon
+    display: none
+
+.display-area
+  padding-top: 10px
+
+
+.prod-features
+  min-height: 30px
+  line-height: 30px
+  padding-left: $menu-padding-left
+  h4
+    font-size: 15px
+    line-height: inherit
+    font-weight: normal
+
+.features-nav
+  padding-right: 10px
+  padding-left: 10px
+
+.features-nav .first-title
+  margin-top: 16px
+
+.sub-group
+  padding-left: $menu-padding-left
+  border-top: solid 1px #eee
+
+.main-list:after
+  top: 10px
+  height: 400px
+
+.prod-info:before
+  top: 0
+  height: 400px
+
+.menu
+  max-height: 420px
+  overflow: hidden
+.menu-box
+  min-height: 420px
+  max-height: 420px
+
+.f-content.pl-20
+  padding: 5px 0 5px 0
+
+
+//-----------------------------------------------------------------------------
+// menu mobile
+.cd-navigation-wrapper
+  +breakpoint($pad-down)
+    background-color: white
+
+.cd-primary-nav dt
+  +breakpoint($pad-down)
+    width: 100%
+    background-image: none
+    float: none
+    text-align: left
+    padding-left: 25px
+
+.cd-primary-nav dl dd,
+.cd-primary-nav dd
+  +breakpoint($pad-down)
+    margin-left: 0
+    border-left: none
+    margin: 0
+    padding: 10px 15px
+    a.active,a:hover
+      background-color: transparent

@@ -1,0 +1,424 @@
+
+  /*splitfilename=gx_04_text-level.css*/
+//
+//
+//
+//
+//
+//==============================================================================
+// 文字省略...
+
+%ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inherit;
+}
+
+%ellipsis-webkit-box {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+%text-ellipsis-1,
+.text-ellipsis-1 {
+  @extend %ellipsis;
+  white-space: nowrap;
+}
+
+%text-ellipsis-2,
+.text-ellipsis-2 {
+  @extend %ellipsis;
+  @extend %ellipsis-webkit-box;
+  -webkit-line-clamp: 2;
+}
+
+%text-ellipsis-3,
+.text-ellipsis-3 {
+  @extend %ellipsis;
+  @extend %ellipsis-webkit-box;
+  -webkit-line-clamp: 3;
+}
+
+%text-ellipsis-4,
+.text-ellipsis-4 {
+  @extend %ellipsis;
+  @extend %ellipsis-webkit-box;
+  -webkit-line-clamp: 4;
+}
+
+%text-ellipsis-5,
+.text-ellipsis-5 {
+  @extend %ellipsis;
+  @extend %ellipsis-webkit-box;
+  -webkit-line-clamp: 5;
+}
+//==============================================================================
+
+* {
+  font: Helvetica,"Lucida Grande","Microsoft JhengHei",sans-serif;
+  font-family: Arial, Geneva, "Microsoft JhengHei",sans-serif;
+  word-break: break-all;
+}
+
+body {
+  font-size: 100%;
+}
+@mixin font-size($sizeValue: 12) {
+  font-size: $sizeValue + px; //fallback for old browsers
+  font-size: (0.0625 * $sizeValue) + rem;
+}
+@mixin line-height($heightValue: 20) {
+  line-height: $heightValue + px; //fallback for old browsers
+  line-height: (0.0625 * $heightValue) + rem;
+}
+@mixin rhythm($sizeValue: 12, $heightValue: 20) {
+  @include font-size($sizeValue);
+  @include line-height($heightValue);
+}
+//==============================================================================
+//
+// a
+//
+
+%a,
+a {
+  // @include rhythm(16, 26);
+  // @include breakpoint($pad-down) {
+  //   @include rhythm(15, 25);
+  // }
+}
+//==============================================================================
+//
+// em (強調)
+//
+
+em {
+  @extend %p;
+  display: inline-block;
+}
+//==============================================================================
+//
+// strong (重要)
+//
+
+strong {
+  font-weight: bold;
+}
+//==============================================================================
+//
+// small
+//
+
+%small,
+small {
+  @include rhythm(13, 20);
+  @include breakpoint($pad-down) {
+    @include rhythm(12, 18);
+  }
+
+  &.left {
+    text-align: left;
+  }
+
+  &.center {
+    display: block;
+    text-align: center;
+  }
+
+  &.right {
+    text-align: right;
+  }
+}
+//==============================================================================
+//
+// s (畫線 錯誤的文字樣式)
+//
+
+s {}
+//==============================================================================
+//
+// cite (参考文献的引用，比如 书籍、杂志、期刊，)
+//
+
+cite {
+  font-style: italic;
+  @extend %small;
+}
+//==============================================================================
+//
+// q (引用)
+//
+// <q cite="引用資料網址"></q>
+
+q {}
+//==============================================================================
+//
+// dfn
+//
+
+dfn {
+  text-decoration: underline;
+}
+//==============================================================================
+//
+// abbr (縮寫)
+//
+//<abbr title="Laugh Out Loud">LOL</abbr>
+//==============================================================================
+//
+// ruby
+//
+//==============================================================================
+//
+// rb
+//
+//==============================================================================
+//
+// rt
+//
+//==============================================================================
+//
+// rct
+//
+//==============================================================================
+//
+// rp
+//
+//==============================================================================
+//
+// data
+//
+// [data-tooltip]
+
+// .tooltip-back,
+// .tooltip-font {
+//   display: inline-block;
+//   z-index: 0;
+// }
+//
+// *[data-tooltip] {
+//   position: relative;
+//   display: inline-block;
+//   line-height: normal;
+//
+//   &::before {
+//     content: attr(data-tooltip);
+//     display: block;
+//     float: left;
+//     color: #fff;
+//     background: #3b4a51;
+//     padding: 8px;
+//     position: absolute;
+//     font-size: 0.8em;
+//     border-radius: 4px;
+//     width: 160px;
+//     display: none;
+//     z-index: 5;
+//     text-align: left;
+//     z-index: 9999;
+//     @extend %h6;
+//   }
+//
+//   &::after {
+//     content: '';
+//     display: block;
+//     position: absolute;
+//     width: 0;
+//     height: 0;
+//     border-color: transparent;
+//     border-style: solid;
+//     display: none;
+//     z-index: 5;
+//   }
+//
+//   &:hover {
+//     cursor: default;
+//   }
+//
+//   &:hover:after,
+//   &:hover:before {
+//     display: block;
+//   }
+// }
+//
+// *[data-tooltip=""]::before,
+// *[data-tooltip=""]::after,
+// *[data-tooltip=""]:hover:before,
+// *[data-tooltip=""]:hover:after {
+//   display: none;
+// }
+//
+// *[data-placement="top"]::before {
+//   bottom: 100%;
+// }
+//
+// *[data-placement="top"]::after {
+//   border-width: 5px 5px 0 5px;
+//   border-top-color: #3b4a51;
+//   top: 0;
+//   left: 50%;
+// }
+//
+// *[data-placement="bottom"]::before {
+//   top: 100%;
+// }
+//
+// *[data-placement="bottom"]::after {
+//   border-width: 0 5px 5px 5px;
+//   border-bottom-color: #3b4a51;
+//   bottom: 0;
+//   left: 50%;
+// }
+//
+// *[data-placement="left"]::before {
+//   right: 100%;
+// }
+//
+// *[data-placement="left"]::after {
+//   border-width: 5px 0 5px 5px;
+//   border-left-color: #3b4a51;
+//   top: 60%;
+// }
+//
+// *[data-placement="right"]::before {
+//   left: 100%;
+// }
+//
+// *[data-placement="right"]::after {
+//   border-width: 5px 5px 5px 0;
+//   border-right-color: #3b4a51;
+//   right: 0;
+//   top: 60%;
+// }
+
+//==============================================================================
+//
+// time
+//
+//==============================================================================
+//
+// code (程式碼 文字)
+//
+
+code {
+  @extend %small;
+}
+//==============================================================================
+//
+// var
+//
+//==============================================================================
+//
+// samp
+//
+//==============================================================================
+//
+// kbd
+//
+//==============================================================================
+//
+// sub (下 標題)
+//
+
+sub {}
+//==============================================================================
+//
+// sup (上 標題)
+//
+
+sup {}
+//==============================================================================
+//
+// i (術語 外語 虛構想法)
+//
+
+dl i,
+h1 i,
+h2 i,
+h3 i,
+h4 i,
+h5 i,
+h6 i,
+li i {
+  vertical-align: middle;
+}
+
+dl i {
+  padding-right: 10px;
+}
+//==============================================================================
+//
+// b
+//
+
+b {
+  font-weight: bold;
+}
+//==============================================================================
+//
+// u
+//
+//==============================================================================
+//
+// mark
+//
+
+mark {
+  background-color: #ffff91;
+  padding: 0 5px;
+}
+//==============================================================================
+//
+// bdi
+//
+// bdi {
+//   direction: rtl;
+//   unicode-bidi: bidi-override;
+//
+//   *, > *, a {
+//     display: inline-block;
+//   }
+// }
+//==============================================================================
+//
+// bdo (內容物 相反)
+//
+
+bdo {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+
+  *,
+  > *,
+  a {
+    display: inline-block;
+  }
+}
+//==============================================================================
+//
+// span
+//
+//==============================================================================
+//
+// br
+//
+br {
+  &.desktop {
+    display: none;
+    @include breakpoint($table-up) {
+      display: block;
+    }
+  }
+  &.mobile {
+    display: none;
+    @include breakpoint($table-down) {
+      display: block;
+    }
+  }
+}
+//==============================================================================
+//
+// wbr
+//
+//==============================================================================
+/*split*/

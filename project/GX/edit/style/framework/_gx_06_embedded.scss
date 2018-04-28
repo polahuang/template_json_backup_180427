@@ -1,0 +1,327 @@
+/*splitfilename=gx_06_embedded.css*/
+//
+//
+//
+//
+//
+//==============================================================================
+//
+// img
+//
+
+img,
+.img {
+  max-width: 100%;
+  vertical-align: middle;
+  position: relative;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  //height: 100%;
+  width: 100%;
+  //z-index: 0;
+  @extend %scale-1x1;
+}
+@mixin img($url) {
+  background-image: url("../image/#{$url}");
+}
+@mixin img_desktop($url) {
+  @include breakpoint($pad-up) {
+    background-image: url("../image/#{$url}");
+  }
+}
+@mixin img_mobile($url) {
+  @include breakpoint($pad-down) {
+    background-image: url("../image/#{$url}");
+  }
+}
+//
+
+%half-img-left {
+  width: 165%;
+  z-index: 0;
+  right: 65%;
+  background-size: cover;
+  position: relative;
+  max-width: inherit;
+}
+
+%half-img-left_desktop {
+  @include breakpoint($pad-up) {
+    width: 165%;
+    z-index: 0;
+    right: 65%;
+    background-size: cover;
+    position: relative;
+    max-width: inherit;
+  }
+}
+
+%half-img-left_mobile {
+  @include breakpoint($pad-down) {
+    width: 165%;
+    z-index: 0;
+    right: 65%;
+    background-size: cover;
+    position: relative;
+    max-width: inherit;
+  }
+}
+//
+
+%half-img-right {
+  width: 165%;
+  z-index: 0;
+  right: 0;
+  background-size: cover;
+  position: relative;
+  max-width: inherit;
+}
+
+%half-img-right_desktop {
+  @include breakpoint($pad-up) {
+    width: 165%;
+    z-index: 0;
+    right: 0;
+    background-size: cover;
+    position: relative;
+    max-width: inherit;
+  }
+}
+
+%half-img-right_mobile {
+  @include breakpoint($pad-down) {
+    width: 165%;
+    z-index: 0;
+    right: 0;
+    background-size: cover;
+    position: relative;
+    max-width: inherit;
+  }
+}
+//
+//
+// svg
+//
+@mixin svgcolor($color: transparent) {
+  path {
+    fill: $color !important;
+  }
+}
+@mixin svg($url) {
+  @extend %svg;
+  background-image: url($url);
+}
+@mixin svg_desktop($url) {
+  @extend %svg;
+  @include breakpoint($pad-up) {
+    background-image: url($url);
+  }
+}
+@mixin svg_mobile($url) {
+  @extend %svg;
+  @include breakpoint($pad-down) {
+    background-image: url($url);
+  }
+}
+
+%svg {
+  vertical-align: middle;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  //z-index: 0;
+  display: inline-block;
+}
+
+.svg {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+  background-size: 100%;
+  transition: all ease-in-out 0.3s;
+}
+
+i {
+  .svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+//
+// bg
+//
+
+%bg {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  //z-index: 0;
+}
+@mixin bg($url) {
+  @extend %bg;
+  background-image: url("../image/#{$url}");
+}
+@mixin bg_desktop($url) {
+  @extend %bg;
+  @include breakpoint($pad-up) {
+    background-image: url("../image/#{$url}");
+  }
+}
+@mixin bg_mobile($url) {
+  @extend %bg;
+  @include breakpoint($pad-down) {
+    background-image: url("../image/#{$url}");
+  }
+}
+//
+// bg-color
+//
+
+.bg-color {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  //z-index: 0;
+}
+// 漸層色
+@mixin gradient($direction, $list) {
+  background: -webkit-linear-gradient($direction, $list);
+  background: -moz-linear-gradient($direction, $list);
+  background: -o-linear-gradient($direction, $list);
+  background: linear-gradient($direction, $list);
+}
+
+// $color-a: white;
+// $color-b: #f8f8f8;
+// $list-1: $color-a 0%, $color-a 80%, $color-b 80%, $color-b 100%;
+// @include gradient(top, $list-1);
+
+//==============================================================================
+//
+// picture
+//
+//==============================================================================
+//
+// video | iframe | embed | object
+//
+
+%video,
+.video {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 0;
+  height: 0;
+  overflow: hidden;
+
+  embed,
+  iframe,
+  object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+%video_desktop,
+.video_desktop {
+  @include breakpoint($pad-up) {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 0;
+    height: 0;
+    overflow: hidden;
+
+    embed,
+    iframe,
+    object {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  @include breakpoint($pad-down) {
+    embed,
+    iframe,
+    object{
+      display: none;
+    }
+  }
+}
+%video_mobile,
+.video_mobile {
+  @include breakpoint($pad-up) {
+    embed,
+    iframe,
+    object{
+      display: none;
+    }
+  }
+  @include breakpoint($pad-down) {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 0;
+    height: 0;
+    overflow: hidden;
+
+    embed,
+    iframe,
+    object {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+//==============================================================================
+//
+// audio
+//
+//==============================================================================
+//
+// track
+//
+//==============================================================================
+//
+// iframe
+//
+//==============================================================================
+//
+// embed
+//
+//==============================================================================
+//
+// object
+//
+//==============================================================================
+//
+// param
+//
+//==============================================================================
+/*split*/

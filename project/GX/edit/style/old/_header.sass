@@ -1,0 +1,420 @@
+@import mixin
+$height-base: 60px
+header
+  position: relative
+  z-index: 9999
+  position: static
+  position: fixed
+  .header
+    height: $height-base
+    line-height: $height-base
+    max-width: 1200px
+    margin: 0 auto
+  .toggle
+    +box-left
+    width: 50px
+    height: $height-base - 10px
+    line-height: $height-base - 10px
+    text-align: center
+    margin: 5px
+  .logo
+    +box-left
+    //padding-left: 60px
+    a
+      display: block
+      width: 160px
+      height: 60px
+      background: url(../image/header/logo.png) no-repeat
+      +text-hide
+  .nav
+    // display: block
+    width: 100%
+    position: absolute
+    top: $height-base
+    +breakpoint($pad-down)
+      display: none
+    li
+      display: block
+      //background-color: #eee
+      float: left
+      i.bcc-down
+        color: #dbdbdb
+      a
+        display: block
+        padding: 0 15px
+        font-size: 1.2em
+        position: relative
+        margin: 0
+        &:hover
+          text-decoration: none
+          color: $color-main
+          border-bottom: solid 3px $color-main
+          i.bcc-down
+            color: $color-main
+  .btn-try
+    display: inline-block
+    float: right
+    right: 15px
+    // position: absolute
+    // right: 0
+    // top: 10px
+    // display: block
+    // @extend %button-nomal
+    // +breakpoint($pad-down)
+    //   display: none
+    // a
+    //   padding: 6px 15px
+
+  .sticky
+    position: fixed
+    top: 0
+
+
+/* 手機版 */
+.cd-nav-trigger
+  display: inline-block
+  //position: absolute
+  float: left
+  z-index: 9999
+  left: 0
+  top: 5px
+  height: 50px
+  width: 50px
+  /* image replacement */
+  overflow: hidden
+  text-indent: 100%
+  white-space: nowrap
+  -webkit-transition: -webkit-transform 0.5s
+  -moz-transition: -moz-transform 0.5s
+  transition: transform 0.5s
+  .cd-nav-icon
+    /* icon created in CSS */
+    position: absolute
+    left: 50%
+    top: 50%
+    bottom: auto
+    right: auto
+    -webkit-transform: translateX(-50%) translateY(-50%)
+    -moz-transform: translateX(-50%) translateY(-50%)
+    -ms-transform: translateX(-50%) translateY(-50%)
+    -o-transform: translateX(-50%) translateY(-50%)
+    transform: translateX(-50%) translateY(-50%)
+    width: 22px
+    height: 2px
+    background-color: #032fa2
+    &::before, &:after
+      /* upper and lower lines of the menu icon */
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      width: 100%
+      height: 100%
+      background-color: inherit
+      /* Force Hardware Acceleration in WebKit */
+      -webkit-transform: translateZ(0)
+      -moz-transform: translateZ(0)
+      -ms-transform: translateZ(0)
+      -o-transform: translateZ(0)
+      transform: translateZ(0)
+      -webkit-backface-visibility: hidden
+      backface-visibility: hidden
+      -webkit-transition: -webkit-transform 0.5s, width 0.5s, top 0.3s
+      -moz-transition: -moz-transform 0.5s, width 0.5s, top 0.3s
+      transition: transform 0.5s, width 0.5s, top 0.3s
+    &::before
+      -webkit-transform-origin: right top
+      -moz-transform-origin: right top
+      -ms-transform-origin: right top
+      -o-transform-origin: right top
+      transform-origin: right top
+      -webkit-transform: translateY(-6px)
+      -moz-transform: translateY(-6px)
+      -ms-transform: translateY(-6px)
+      -o-transform: translateY(-6px)
+      transform: translateY(-6px)
+    &::after
+      -webkit-transform-origin: right bottom
+      -moz-transform-origin: right bottom
+      -ms-transform-origin: right bottom
+      -o-transform-origin: right bottom
+      transform-origin: right bottom
+      -webkit-transform: translateY(6px)
+      -moz-transform: translateY(6px)
+      -ms-transform: translateY(6px)
+      -o-transform: translateY(6px)
+      transform: translateY(6px)
+.no-touch .cd-nav-trigger:hover .cd-nav-icon::after
+  top: 2px
+
+.no-touch .cd-nav-trigger:hover .cd-nav-icon::before
+  top: -2px
+
+.navigation-is-open .cd-nav-trigger .cd-nav-icon
+  background-color: transparent
+.navigation-is-open .cd-nav-trigger .cd-nav-icon::after,
+.navigation-is-open .cd-nav-trigger .cd-nav-icon::before
+  /* animate arrow --> from hamburger to arrow */
+  /*width: 50% */
+  background-color: #032fa2
+  -webkit-transition: -webkit-transform 0.5s, width 0.5s
+  -moz-transition: -moz-transform 0.5s, width 0.5s
+  transition: transform 0.5s, width 0.5s
+.navigation-is-open .cd-nav-trigger .cd-nav-icon::before
+  -webkit-transform: translateX(-46%) translateY(6px) rotate(45deg)
+  -moz-transform: translateX(-46%) translateY(6px) rotate(45deg)
+  -ms-transform: translateX(-46%) translateY(6px) rotate(45deg)
+  -o-transform: translateX(-46%) translateY(6px) rotate(45deg)
+  transform: translateX(-46%) translateY(6px) rotate(45deg)
+.navigation-is-open .cd-nav-trigger .cd-nav-icon::after
+  -webkit-transform: translateX(-50%) translateY(-10px) rotate(-45deg)
+  -moz-transform: translateX(-50%) translateY(-10px) rotate(-45deg)
+  -ms-transform: translateX(-50%) translateY(-10px) rotate(-45deg)
+  -o-transform: translateX(-50%) translateY(-10px) rotate(-45deg)
+  transform: translateX(-50%) translateY(-10px) rotate(-45deg)
+
+.no-touch .navigation-is-open .cd-nav-trigger:hover .cd-nav-icon::after, .no-touch .navigation-is-open .cd-nav-trigger:hover .cd-nav-icon::before
+  top: 0
+
+.cd-nav
+  position: fixed
+  z-index: 999
+  top: 60px
+  left: 0
+  height: calc(100% - 60px)
+  width: 100%
+  // background-color: #f8f8f8
+  visibility: hidden
+  -webkit-transition: visibility 0s 0.7s
+  -moz-transition: visibility 0s 0.7s
+  transition: visibility 0s 0.7s
+  .cd-navigation-wrapper
+    /* all navigation content */
+    height: 100%
+    overflow-y: auto
+    -webkit-overflow-scrolling: touch
+    /*padding: 40px 5% 40px calc(5% + 80px) */
+    padding: 0
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0)
+    -moz-transform: translateZ(0)
+    -ms-transform: translateZ(0)
+    -o-transform: translateZ(0)
+    transform: translateZ(0)
+    -webkit-backface-visibility: hidden
+    backface-visibility: hidden
+    -webkit-transform: translateX(-50%)
+    -moz-transform: translateX(-50%)
+    -ms-transform: translateX(-50%)
+    -o-transform: translateX(-50%)
+    transform: translateX(-50%)
+    -webkit-transition: -webkit-transform 0.7s
+    -moz-transition: -moz-transform 0.7s
+    transition: transform 0.7s
+    -webkit-transition-timing-function: cubic-bezier(0.86, 0.01, 0.77, 0.78)
+    -moz-transition-timing-function: cubic-bezier(0.86, 0.01, 0.77, 0.78)
+    transition-timing-function: cubic-bezier(0.86, 0.01, 0.77, 0.78)
+.cd-primary-nav
+  dt
+    /*margin: 1.6em 0*/
+    background-color: #eee
+    background-image: url(../image/header/category_bg.jpg)
+    background-repeat: repeat-x
+    height: 30px
+    line-height: 30px
+    padding-left: 10px
+  dd
+    background-color: #FFF
+    border-bottom: 1px solid #ddd
+  a
+    display: block
+    color: #232323
+    padding-left: 10px
+    font-size: 1.2em
+    background-color: transparent
+    transition: all 0.3s ease
+    &:hover
+      color: #FFF
+      background-color: #032fa2
+.navigation-is-open .cd-nav
+  visibility: visible
+  -webkit-transition: visibility 0s 0s
+  -moz-transition: visibility 0s 0s
+  transition: visibility 0s 0s
+.navigation-is-open .cd-nav .cd-navigation-wrapper
+  -webkit-transform: translateX(0)
+  -moz-transform: translateX(0)
+  -ms-transform: translateX(0)
+  -o-transform: translateX(0)
+  transform: translateX(0)
+  -webkit-transition: -webkit-transform 0.5s
+  -moz-transition: -moz-transform 0.5s
+  transition: transform 0.5s
+  -webkit-transition-timing-function: cubic-bezier(0.82, 0.01, 0.77, 0.78)
+  -moz-transition-timing-function: cubic-bezier(0.82, 0.01, 0.77, 0.78)
+  transition-timing-function: cubic-bezier(0.82, 0.01, 0.77, 0.78)
+
+
+
+.aposA8-design-bg
+  background-image: url(image/hardware/aposA8_bg.jpg)
+
+
+
++media-breakpoint-up(tablet)
+  header
+    // .toggle
+    //   display: none
+    .cd-nav-trigger
+      display: none
+    .logo
+      padding-left: 0
+    .nav
+      display: inline-block
+      //position: relative
+      top: 0
+      //width: calc(100% - 170px)
+      float: left
+      margin-left: 10px
+      // float: right
+      // text-align: right
+      li
+        display: inline-block
+        background-color: transparent
+        &:hover > ul
+          display: block
+        a
+          display: block
+          padding: 0 15px
+          font-size: 1em
+          height: $height-base
+          line-height: $height-base
+          cursor: pointer
+        i
+          font-size: .7em
+          padding-left: 10px
+        ul
+          display: none
+          position: absolute
+          top: 100%
+          min-width: 200px
+          box-shadow: 1px 1px 5px rgba(51,51,51,.3)
+          li
+            // margin: 0
+            background-color: #fff
+            display: block
+            text-align: left
+            a
+              height: 50px
+              line-height: 50px
+              margin: 0
+    // .shotcut, .page-header, .login
+    //   display: none !important
+    .cd-nav-trigger
+      top: 40px
+
+
+
+
+
+  header #nav_jabez li i.bcc-down
+    display: none
+
+
+
++media-breakpoint-down(desktop)
+  header .nav li a
+    margin: 0
+
+
+
+
++media-breakpoint-up(desktop)
+  header
+    .header
+      position: relative
+    .nav
+      width: calc(100% - 200px)
+
+
+
+
+
+
+
+
++media-breakpoint-down(tablet)
+  header .logo
+    //padding-left: 50px
+    a
+      background-size: 95%
+
+
+
+//-----------------------------------------------------------------------------
+
+.dropdown-select
+  display: inline-block
+  float: right
+  color: #7b7b7b
+  font-size: 1.2em
+  border: solid 1px #bdbdbd
+  padding: 5px
+  border-radius: 4px
+  width: 130px
+  height: 31px
+  position: relative
+  top: 16px
+  margin-right: 112px
+  i
+    position: absolute
+    top: -15px
+    z-index: 1
+    left: 5px
+  select
+    border: none
+    padding: 0
+    margin: 0
+    position: absolute
+    top: -1px
+    left: 0
+    font-size: 0.8em
+    width: 100%
+    height: 30px
+    background-color: transparent
+    text-indent: 20px
+    -ms-text-align-last: center
+    -moz-text-align-last: center
+    text-align-last: center
+    text-indent: 20px
+  option
+    text-align-last: center
+
+
+
+.login-register
+  .dropdown-select
+    margin-right: 0
+
++media-breakpoint-down(tablet)
+  .dropdown-select
+    display: none
+
+  .login-register
+    .dropdown-select
+      display: inline-block
+      position: absolute
+      top: 13px
+      right: 10px
+      margin-right: 0
+      width: 120px
+
+  .dropdown-select select
+    left: 20px
+
+
+
+
+
+
+//-----------------------------------------------------------------------------

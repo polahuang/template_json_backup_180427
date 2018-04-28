@@ -1,0 +1,393 @@
+// (jabezpos_pricing) 價格表
+
+//animation
+.price-table
+  margin-bottom: 60px
+  padding-top: 60px
+  // opacity: 0
+  // &.animation,center
+  //   $time: .4s
+  //   animation: opacity $time, up $time
+  //   -moz-animation: opacity $time, up $time
+  //   -webkit-animation: opacity $time, up $time
+  //   -o-animation: opacity $time, up $time
+  //   opacity: 1
+  //
+  //   .price-tab-nav
+  //     $time: .6s
+  //     animation: opacity $time, up $time
+  //     -moz-animation: opacity $time, up $time
+  //     -webkit-animation: opacity $time, up $time
+  //     -o-animation: opacity $time, up $time
+  //     opacity: 1
+  //
+  //   thead,tfoot,tbody
+  //     $time: .8s
+  //     animation: opacity $time, up $time
+  //     -moz-animation: opacity $time, up $time
+  //     -webkit-animation: opacity $time, up $time
+  //     -o-animation: opacity $time, up $time
+  //     opacity: 1
+
+
+// caption
+.caption
+  center
+    margin: 25px 0
+  h3
+    font-weight: bold
+    font-size: 2.3em
+    color: #232323
+  p
+    margin: 0
+    font-size: 1.2em
+
++media-breakpoint-down(tablet)
+  .caption
+    h3
+      font-size: 1.8em
+    p
+      font-size: 1em
+
+
+// table
+table.style-table
+  width: 100%
+  margin: 0 auto
+
+  button, img, h1, h3, h4, h6, p
+   margin: 0
+   padding: 0
+
+  button
+    display: none
+    &.button
+      display: inline-block
+
+  a
+    display: block
+
+  img
+    max-width: 100%
+    width: inherit
+    text-align: center
+    margin: 0 auto
+
+  .radio, .checkbox
+    display: none
+
+  th,td
+    border: solid 1px #dddddd
+    text-align: center
+    padding: 8px 0
+    color: #3b4952
+
+
+  // thead
+  thead
+    th
+      width: 21%
+      color: #fff
+      padding: 2% 0
+      border: none
+      border-top-left-radius: 6px
+      border-top-right-radius: 6px
+      &:first-child
+        width: 16%
+    a
+      color: #fff
+      border-radius: 4px
+      padding: 6px 35px
+      &:hover
+        opacity: 0.9
+    h1
+      font-size: 2em
+      font-weight: normal
+      margin: 5px 0
+    h4
+      font-size: 1.2em
+    h3
+      font-size: 2em
+      margin: 5px 0
+      span
+        display: inline-block
+        font-size: 0.6em
+
+  // tbody
+  tbody
+    h1
+      font-size: 1em
+      font-weight: normal
+    p
+      font-size: 0.9em
+    tr:first-child td p
+      white-space: nowrap
+      text-align: left
+      max-width: 200px
+      margin: 0 auto
+    td[colspan="5"]
+      text-align: left
+      background-color: #aaaaaa
+      padding: 2px 2%
+      h4
+        font-size: 1.2em
+        color: #fff
+    tr:first-child td[data-title="side_nav"]
+      background-color: #e3e3e3
+    td[data-title="side_nav"]
+      text-align: left
+      padding: 2px 2%
+      min-width: 110px
+    h1 span.tip
+      color: #fff
+      background-color: #3590c7
+      border-radius: 50%
+      width: 20px
+      height: 20px
+      display: inline-block
+      position: relative
+      top: 0px
+      left: 5px
+      text-indent: 5px
+      font-size: 0.9em
+      line-height: 22px
+      z-index: 0
+    button a
+      border: solid 1px #3590c7
+      border-radius: 20px
+      color: #3590c7
+      padding: 6px 15px
+      &:hover
+        background-color: #3590c7
+        color: #fff
+
+
+  // tfoot
+  tfoot
+    td
+      text-align: left
+      padding: 15px 2%
+      vertical-align: top
+      h4
+        font-size: 1.2em
+
+    td[data-title="side_nav"]
+      display: table-cell
+
+    td[data-title="notice_list_a"],td[data-title="notice_list_b"]
+      background-color: #fff
+      ol
+        list-style: decimal
+        margin-left: 15px
+        font-size: 0.9em
+
+
+
+
++media-breakpoint-down(tablet)
+  table.style-table
+    width: 90%
+    th,td
+     display: none
+     &.active
+       display: table-cell
+
+    // thead
+    thead
+      th
+        width: 60%
+        padding: 6% 0
+        a
+          padding: 10px 60px
+          font-size: 1.6em
+          letter-spacing: 2px
+          margin: 5px 0 0
+
+    // tbody
+    tbody
+      h1
+        cursor: pointer
+        -webkit-tap-highlight-color: rgba(0,0,0,0)
+
+
+
+
+// tooltip
+$tooltip: #3b4a51
+.tooltip-font, .tooltip-back
+  display: inline-block
+  z-index: 0
+
+*[data-tooltip]
+  position: relative
+  &::before
+    content: attr(data-tooltip)
+    display: block
+    float: left
+    color: #fff
+    background: $tooltip
+    padding: 8px
+    position: absolute
+    font-size: 0.8em
+    border-radius: 4px
+    width: 160px
+    display: none
+    z-index: 5
+  &::after
+    content: ''
+    display: block
+    position: absolute
+    width: 0
+    height: 0
+    border-color: transparent
+    border-style: solid
+    display: none
+    z-index: 5
+  &:hover:before, &:hover:after
+    display: block
+
+// 所有空值的tooltip隱藏
+*[data-tooltip=""]
+  &::before, &::after,&:hover:before, &:hover:after
+    display: none
+
+*[data-placement="top"]
+    &::before
+      bottom: 100%
+    &::after
+      border-width: 5px 5px 0 5px
+      border-top-color: $tooltip
+      top: 0
+      left: 50%
+*[data-placement="bottom"]
+    &::before
+      top: 100%
+    &::after
+      border-width: 0 5px 5px 5px
+      border-bottom-color: $tooltip
+      bottom: 0
+      left: 50%
+*[data-placement="left"]
+    &::before
+      right: 100%
+    &::after
+      border-width: 5px 0 5px 5px
+      border-left-color: $tooltip
+      top: 60%
+*[data-placement="right"]
+    &::before
+      left: 100%
+    &::after
+      border-width: 5px 5px 5px 0
+      border-right-color: $tooltip
+      right: 0
+      top: 60%
+
++media-breakpoint-down(tablet)
+  *[data-tooltip]
+    &:hover:before, &:hover:after
+      display: none
+    &.active:before, &.active:after
+      display: block
+
+
+
+// 手機板 tab-nav
+$default: #5e7885
+$free: #3b4952
+$bluenote: #3590c7
+$orangeA: #f19149
+$orangeB: #ea8336
+
+.price-tab-nav
+  margin: 5%
+  display: none
+  border-radius: 4px
+  overflow: hidden
+  ul
+    border: solid 1px #3b4952
+    border-radius: 6px
+    display: table
+    width: 100%
+    li
+      display: table-cell
+      width: 25%
+      border-left: solid 1px #252d30
+      &:first-child
+        border-left: none
+      a
+        display: block
+        text-align: center
+        padding: 15px 0
+        color: #fff
+        background-color: $default
+      a.price-a
+        &.active, &:hover
+          background-color: $free
+      a.price-b
+        &.active, &:hover
+          background-color: $bluenote
+      a.price-c
+        &.active, &:hover
+          background-color: $orangeA
+      a.price-d
+        &.active, &:hover
+          background-color: $orangeB
+
++media-breakpoint-down(tablet)
+  .price-tab-nav
+    display: block
+
+
+
+
+// colgroup
+$white: #fff
+$gray: #eee
+
+.side-nav
+  background-color: $white
+.version-free
+  background-color: $white
+.version-retail
+  background-color: $gray
+.version-food-before
+  background-color: $white
+.version-food-after
+  background-color: $gray
+
+
+// 側邊攔
+#side_nav
+  display: table-cell
+  background-color: #f8f8f8
++media-breakpoint-down(tablet)
+  #side_nav
+    display: none
+
+
+// 創業版
+#version_free
+  background-color: $free
+  h3
+    display: none
+  a
+    background-color: #5f7886
+
+// 零售百貨版
+#version_retail
+  background-color: $bluenote
+  a
+    background-color: #1f5f9f
+
+// 餐飲先結版
+#version_food_before
+  background-color: $orangeA
+  a
+    background-color: #cc6633
+
+// 餐飲後結版
+#version_food_after
+  background-color: $orangeB
+  a
+    background-color: #cc6633

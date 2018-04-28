@@ -1,0 +1,290 @@
+
+  /*splitfilename=gx_03_grouping.css*/
+//
+//
+//
+//
+//
+//==============================================================================
+//
+// p
+//
+// font-size
+
+%p,
+p {
+  @include rhythm(16, 28);
+  @include breakpoint($pad-down) {
+    @include rhythm(14, 23);
+  }
+}
+//==============================================================================
+//
+// hr
+//
+
+hr {
+  width: 100%;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 15px 0 0;
+  padding: 0;
+}
+//==============================================================================
+//
+// pre
+//
+
+pre {
+  background-color: $color-black;
+  color: $color-white;
+  text-align: left;
+  padding: 15px 20px;
+  @extend %small;
+  color: #eee5e6;
+}
+//==============================================================================
+//
+// blockquote
+//
+
+//==============================================================================
+//
+// ol
+//
+
+ol {
+  @extend %clearfix;
+}
+//==============================================================================
+//
+// ul
+//
+
+ul {
+  @extend %clearfix;
+}
+//==============================================================================
+//
+// li
+//
+
+li {
+  position: relative;
+}
+// 中間纖
+@mixin midline($color) {
+  & {
+    border-left: solid 1px $color;
+  }
+
+  &:first-child {
+    border-left: none;
+  }
+}
+//==============================================================================
+//
+// dl
+//
+
+%dl {
+  $width: 100px;
+  $space: 15px;
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+  text-align: left;
+
+  dt {
+    @extend %col-2;
+    float: left;
+    text-align: right;
+    padding-right: $space;
+    margin-bottom: $space;
+    white-space: nowrap;
+    @include breakpoint($pad-down) {
+      min-width: 100px;
+    }
+  }
+
+  dd {
+    @extend %col-10;
+    border-left: solid 1px #ddd;
+    padding-left: $space;
+    margin-bottom: $space;
+    @include breakpoint($pad-down) {
+      width: initial;
+      float: none;
+      margin-left: 100px;
+    }
+  }
+
+  &.hasicon {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      padding: 0;
+    }
+  }
+}
+
+%dl-grid-2,
+.dl-grid-2 {
+  > *:nth-child(1n) {
+    @extend %col-2;
+  }
+
+  > *:nth-child(2n) {
+    @extend %col-4;
+  }
+}
+
+%dl-grid-2_desktop,
+.dl-grid-2_desktop {
+  > *:nth-child(1n) {
+    @extend %col-2_desktop;
+  }
+
+  > *:nth-child(2n) {
+    @extend %col-4_desktop;
+  }
+}
+
+%dl-grid-2_mobile,
+.dl-grid-2_mobile {
+  > *:nth-child(1n) {
+    @extend %col-2_mobile;
+  }
+
+  > *:nth-child(2n) {
+    @extend %col-4_mobile;
+  }
+}
+
+%dl-grid-3,
+.dl-grid-3 {
+  > *:nth-child(1n) {
+    @extend %col-2;
+  }
+
+  > *:nth-child(2n) {
+    @extend %col-2;
+  }
+}
+
+%dl-grid-3_desktop,
+.dl-grid-3_desktop {
+  > *:nth-child(1n) {
+    @extend %col-2_desktop;
+  }
+
+  > *:nth-child(2n) {
+    @extend %col-2_desktop;
+  }
+}
+
+%dl-grid-3_mobile,
+.dl-grid-3_mobile {
+  > *:nth-child(1n) {
+    @extend %col-2_mobile;
+  }
+
+  > *:nth-child(2n) {
+    @extend %col-2_mobile;
+  }
+}
+//==============================================================================
+//
+// dt
+//
+
+dt {
+  @extend %h5;
+  position: relative;
+}
+//==============================================================================
+//
+// dd
+//
+
+dd {
+  @extend %h5;
+}
+//==============================================================================
+//
+// figure
+//
+
+figure {
+  position: relative;
+  text-align: center;
+  @extend %clearfix;
+}
+//==============================================================================
+//
+// figcaption
+//
+
+figure figcaption {
+  @extend %text-hide;
+}
+//==============================================================================
+//
+// main
+//
+//==============================================================================
+//
+// [data]
+//
+
+main {
+  @extend %clearfix;
+}
+//
+// [data]
+//
+// data-tab-content="grid"
+
+[data-tab-content="grid"] {
+  background-color: $color-main-darken;
+  border: solid 1px $color-main-darken;
+}
+// [data-tab-content]
+
+[data-tab-content] {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+.data-order li {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+// [data-toggle-content]
+
+[data-toggle-content] {
+  @include breakpoint($pad-down) {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+//==============================================================================
+//
+// div
+//
+//==============================================================================
+/*split*/

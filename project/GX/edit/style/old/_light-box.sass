@@ -1,0 +1,283 @@
+
+/* The Modal (background)
+.modal
+  display: none
+  position: fixed
+  z-index: 9999999
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  overflow: auto
+  background-color: rgb(0, 0, 0)
+  background-color: rgba(0, 0, 0, 0.4)
+  -webkit-animation-name: fadeIn
+  -webkit-animation-duration: 0.4s
+  animation-name: fadeIn
+  animation-duration: 0.4s
+
+span.bg
+  display: block
+  content: ''
+  position: absolute
+  width: 100%
+  height: 100%
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+
+/* Modal Content
+.modal-content
+  position: fixed
+  bottom: 0
+  background-color: #fff
+  width: 100%
+  height: 100%
+  -webkit-animation-name: slideIn
+  -webkit-animation-duration: 0.4s
+  animation-name: slideIn
+  animation-duration: 0.4s
+
+/* The Close Button
+.close
+  color: #cacaca
+  float: right
+  font-size: 28px
+  font-weight: 100
+  position: fixed
+  top: 5px
+  right: 5px
+  background-color: #ffffff
+  border: solid 1px #e0e0e0
+  border-radius: 50%
+  width: 30px
+  height: 30px
+  line-height: 25px
+  text-indent: 6px
+  &:hover, &:focus
+    //color: #000
+    text-decoration: none
+    cursor: pointer
+
+.modal-header
+  padding: 2px 16px
+  color: #333
+  background-color: #fff
+
+.modal-body
+  overflow: scroll
+
+.modal-footer
+  padding: 2px 16px
+  background-color: #5cb85c
+  color: white
+
+/* Add Animation
+@-webkit-keyframes slideIn
+  from
+    bottom: -300px
+    opacity: 0
+  to
+    bottom: 0
+    opacity: 1
+
+@keyframes slideIn
+  from
+    bottom: -300px
+    opacity: 0
+  to
+    bottom: 0
+    opacity: 1
+
+@-webkit-keyframes fadeIn
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+@keyframes fadeIn
+  from
+    opacity: 0
+  to
+    opacity: 1
+//-----------------------------------------------------------------------------
+// modal-light-box
+.modal-light-box
+  z-index: 999999
+  padding-top: 92px
+
+  .modal-content
+    width: 75%
+    height: initial
+    margin: 0 auto
+    position: relative
+    max-width: 960px
+
+  .modal-header
+    color: #2095f2
+    padding: 20px
+    border-bottom: solid 2px #ddd
+    text-align: center
+    h3
+      font-size: 1.8em
+      display: inline-block
+
+  .modal-body
+    overflow: hidden
+    padding: 3%
+    p
+      text-align: center
+      color: #a2a2a2
+      margin: 10% 15px 0
+    .LG-form
+      padding: 33px 8%
+      .LG-tab-content
+        input
+          font-size: 1.2em
+        h6
+          font-size: 1em
+
+    .LG-form .LG-tab-content [type="submit"]
+      margin-top: 35px
+
+  .close
+    position: absolute
+    color: #dddddd
+    font-size: 48px
+    top: 25px
+    right: 20px
+    border: none
+    z-index: 9999999
+    display: inline-block
+    width: 50px
+    height: 45px
+    &:hover
+      color: #9c9c9c
+
++media-breakpoint-down(tablet)
+  .modal-light-box
+
+    .modal-header
+      padding: 15px
+      h3
+        font-size: 1.3em
+
+    .modal-body
+      padding-bottom: 0
+      .LG-form
+        padding: 0 8%
+      p
+        max-width: 225px
+        margin: 35px auto
+
+    .close
+      font-size: 35px
+      top: 12px
+      right: 12px
+
+
+
+
+
++media-breakpoint-down(mobile)
+  .modal-light-box
+    padding-top: 0
+    .modal-content
+      min-height: 100vh
+
+
+//-----------------------------------------------------------------------------
+// canvas_box
+#canvas_box
+  position: fixed
+  z-index: 9999999
+  background-color: #fff
+  visibility: hidden
+  left: 0
+  top: 0
+  right: 0
+
+//-----------------------------------------------------------------------------
+.btn-price
+  display: none
+  margin: 15px 0 0
+
++media-breakpoint-down(tablet)
+  .btn-price
+    display: block
+
+
+//-----------------------------------------------------------------------------
+.modal-light-box .placeholder-title
+  font-size: 1.2em
+
++media-breakpoint-down(tablet)
+  .modal-light-box .placeholder-title
+    font-size: 1em
+
+
+//-----------------------------------------------------------------------------
+.play-video
+
+
+.video-container
+  position: relative
+  padding-bottom: 56.25%
+  padding-top: 0
+  height: 0
+  overflow: hidden
+
+.video-container iframe, .video-container object, .video-container embed
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+
+//-----------------------------------------------------------------------------
+.video-tv
+  position: relative
+  img
+    cursor: pointer
+  a
+    position: absolute
+    top: 20%
+    left: 35%
+    img
+      width: 80%
+
+//-----------------------------------------------------------------------------
+.tab_content .effect-video-auto-play
+  p
+    text-align: center
+    width: 100%
+    padding: 10px
+    margin: 10px 0
+.effect-video-auto-play
+  margin: 0 auto
+  transition: all 0.5s ease-in-out
+  position: relative
+  padding: 5% 0
+
+
+// 背景斜線區塊
+.solution-retail::after
+  display: block
+  content: ''
+  position: absolute
+  top: auto
+  bottom: -55px
+  right: 0
+  left: 0
+  margin: 0
+  padding: 0
+  background-color: #fff
+  -webkit-transform: skewY(1.6deg)
+  -moz-transform: skewY(1.6deg)
+  transform: skewY(1.6deg)
+  z-index: 0
+  height: 80px
+  width: 100%
+  background-color: #fff
