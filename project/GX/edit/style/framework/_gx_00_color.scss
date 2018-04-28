@@ -1,0 +1,357 @@
+/*splitfilename=gx_00_color.css*/
+//
+//
+//
+//
+//
+//==============================================================================
+// 基本色
+//==============================================================================
+
+.color-white {
+  color: $color-white;
+
+  * {
+    color: $color-white;
+  }
+}
+
+.bg-color-white {
+  background-color: $color-white;
+}
+//
+
+.color-black {
+  color: $color-black;
+
+  * {
+    color: $color-black;
+  }
+}
+
+.bg-color-black {
+  background-color: $color-black;
+}
+//
+
+.color-gray {
+  color: $color-gray;
+
+  * {
+    color: $color-gray;
+  }
+}
+
+.bg-color-gray {
+  background-color: $color-gray;
+}
+//
+
+.bg-black,
+.bg-white {
+  &::after,
+  &::before {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+}
+
+.bg-white::before {
+  background-color: $color-white;
+  opacity: 0.45;
+}
+
+.bg-black::after {
+  background-color: $color-black;
+  opacity: 0.25;
+}
+//
+//==============================================================================
+// 主色 ($color-main)
+//==============================================================================
+
+.color-main {
+  * {
+    color: $color-main;
+  }
+
+  path {
+    fill: $color-main !important;
+  }
+}
+
+.bg-color-main {
+  background-color: $color-main;
+}
+// 主色: 亮
+
+.color-main-light {
+  color: $color-main-light;
+}
+
+.bg-color-main-light {
+  background-color: $color-main-light;
+}
+// 主色: 更亮
+
+.color-main-lighter {
+  color: $color-main-lighter;
+}
+
+.bg-color-main-lighter {
+  background-color: $color-main-lighter;
+}
+// 主色: 暗
+
+.color-main-dark {
+  color: $color-main-dark;
+}
+
+.bg-color-main-dark {
+  background-color: $color-main-dark;
+}
+// 主色: 更暗
+
+.color-main-darker {
+  color: $color-main-darker;
+}
+
+.bg-color-main-darker {
+  background-color: $color-main-darker;
+}
+// 主色: 再更暗
+
+.color-main-darken {
+  color: $color-main-darken;
+}
+
+.bg-color-main-darken {
+  background-color: $color-main-darken;
+}
+// 主色: 增加飽和度
+
+.color-main-saturate {
+  color: $color-main-saturate;
+}
+
+.bg-color-main-saturate {
+  background-color: $color-main-saturate;
+}
+// 主色: 減少飽和度
+
+.color-main-desaturate {
+  color: $color-main-desaturate;
+}
+
+.bg-color-main-desaturate {
+  background-color: $color-main-desaturate;
+}
+// 主色: 色相
+
+.color-main-hue {
+  color: $color-main-hue;
+}
+
+.bg-color-main-hue {
+  background-color: $color-main-hue;
+}
+//==============================================================================
+// 副色 ($color-sub)
+//==============================================================================
+
+.color-sub {
+  color: $color-sub; // for_文字
+}
+
+.bg-color-sub {
+  background-color: $color-sub; // for_背景顏色
+}
+// 副色: 亮
+
+.color-sub-light {
+  color: $color-sub-light; // for_文字
+}
+
+.bg-color-sub-light {
+  background-color: $color-sub-light; // for_背景顏色
+}
+// 副色: 更亮
+
+.color-sub-lighter {
+  color: $color-sub-lighter; // for_文字
+}
+
+.bg-color-sub-lighter {
+  background-color: $color-sub-lighter; // for_背景顏色
+}
+// 副色: 暗
+
+.color-sub-dark {
+  color: $color-sub-dark; // for_文字
+}
+
+.bg-color-sub-dark {
+  background-color: $color-sub-dark; // for_背景顏色
+}
+// 副色: 更暗
+
+.color-sub-darker {
+  color: $color-sub-darker; // for_文字
+}
+
+.bg-color-sub-darker {
+  background-color: $color-sub-darker; // for_背景顏色
+}
+// 主色: 再更暗
+
+.color-sub-darken {
+  color: $color-sub-darken; // for_文字
+}
+
+.bg-color-sub-darken {
+  background-color: $color-sub-darken; // for_背景顏色
+}
+// 副色: 增加飽和度
+
+.color-sub-saturate {
+  color: $color-sub-saturate; // for_文字
+}
+
+.bg-color-sub-saturate {
+  background-color: $color-sub-saturate; // for_背景顏色
+}
+// 副色: 減少飽和度
+
+.color-sub-desaturate {
+  color: $color-sub-desaturate; // for_文字
+}
+
+.bg-color-sub-desaturate {
+  background-color: $color-sub-desaturate; // for_背景顏色
+}
+// 副色: 色相
+
+.color-sub-hue {
+  color: $color-sub-hue; // for_文字
+}
+
+.bg-color-sub-hue {
+  background-color: $color-sub-hue; // for_背景顏色
+}
+//==============================================================================
+// 自定 ($color-my)
+//==============================================================================
+
+.color-my {
+  color: $color-my; // for_文字
+}
+
+.bg-color-my {
+  background-color: $color-my; // for_背景顏色
+}
+// 自定: 亮
+
+.color-my-light {
+  color: $color-my-light; // for_文字
+}
+
+.bg-color-my-light {
+  background-color: $color-my-light; // for_背景顏色
+}
+// 自定: 更亮
+
+.color-my-lighter {
+  color: $color-my-lighter; // for_文字
+}
+
+.bg-color-my-lighter {
+  background-color: $color-my-lighter; // for_背景顏色
+}
+// 自定: 暗
+
+.color-my-dark {
+  color: $color-my-dark; // for_文字
+}
+
+.bg-color-my-dark {
+  background-color: $color-my-dark; // for_背景顏色
+}
+// 自定: 更暗
+
+.color-my-darker {
+  color: $color-my-darker; // for_文字
+}
+
+.bg-color-my-darker {
+  background-color: $color-my-darker; // for_背景顏色
+}
+// 自定: 更暗
+
+.color-my-darken {
+  color: $color-my-darker; // for_文字
+}
+
+.bg-color-my-darken {
+  background-color: $color-my-darken; // for_背景顏色
+}
+// 自定: 增加飽和度
+
+.color-my-saturate {
+  color: $color-my-saturate; // for_文字
+}
+
+.bg-color-my-saturate {
+  background-color: $color-my-saturate; // for_背景顏色
+}
+// 自定: 減少飽和度
+
+.color-my-desaturate {
+  color: $color-my-desaturate; // for_文字
+}
+
+.bg-color-my-desaturate {
+  background-color: $color-my-desaturate; // for_背景顏色
+}
+// 自定: 色相
+
+.color-my-hue {
+  color: $color-my-hue; // for_文字
+}
+
+.bg-color-my-hue {
+  background-color: $color-my-hue; // for_背景顏色
+}
+//==============================================================================
+// hover color
+//==============================================================================
+
+.hover-color-main {
+  &:hover,
+  &:hover * {
+    color: $color-main;
+
+    path {
+      fill: $color-main !important;
+    }
+  }
+}
+
+.list-hover-color-main {
+  & > *:hover * {
+    color: $color-main;
+
+    path {
+      fill: $color-main !important;
+    }
+  }
+}
+//==============================================================================
+/*split*/

@@ -1,0 +1,1763 @@
+//------------------------------------------------------------------------------
+// 隱藏 / 顯示 項目:
+//------------------------------------------------------------------------------
+
+#ad_area,
+.breadcrumb,
+.pagination-top {
+  display: none;
+}
+
+%pilot {
+  // 暫時隱藏的區塊
+  display: none;
+}
+
+[data-tab-default-content] {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+//------------------------------------------------------------------------------
+// VAR (全域變數)
+//------------------------------------------------------------------------------
+$menu-width: 250px;
+$menu-back-icon-height: 50px;
+$menu-effect-time: 0.5s;
+$body-bg-color: $color-white;
+$black: #212121;
+$section-bg: #f8f8f8;
+$color-main: #3366cc;
+$color-buy: #e70012;
+$section-space: 10px; //
+//------------------------------------------------------------------------------
+// 按鈕樣式
+//------------------------------------------------------------------------------
+@mixin svg-icon-after {
+  @include scale(16px,16px);
+  content: " ";
+  position: absolute;
+  right: 20px;
+  top: 14px;
+}
+@mixin svg-icon-before {
+  @include scale(20px,20px);
+  content: " ";
+  position: absolute;
+  left: 20px;
+  top: 13px;
+  @include breakpoint($pad-down) {
+    left: 10px;
+    top: 10px;
+  }
+}
+//------------------------------------------------------------------------------
+// 框線顏色,背景顏色,文字顏色,hover文字顏色,hover背景顏色
+@mixin button-default($border,$bg,$color,$reverse,$active) {
+  color: $color;
+  border: solid 1px $border;
+  background-color: $bg;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.1s ease-in;
+
+  &:hover {
+    background-color: $active;
+    color: $reverse;
+    border-color: $active;
+  }
+}
+// 框線顏色,文字顏色,hover文字顏色,hover背景顏色
+@mixin button-border($border,$color,$reverse,$active) {
+  color: $color;
+  padding: 10px 80px 10px 60px;
+  border: solid 1px $border;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.1s ease-in;
+
+  &:after {
+    @include svg_next($border);
+    @include svg-icon-after;
+  }
+
+  &:hover {
+    background-color: $active;
+    color: $reverse;
+    border-color: $active;
+
+    &:after {
+      @include svg_next($reverse);
+      @include svg-icon-after;
+    }
+  }
+}
+// 框線顏色,文字顏色,hover文字顏色,背景顏色
+@mixin button-bg($border,$color,$reverse,$active) {
+  background-color: $active;
+  color: $color;
+  padding: 10px 80px 10px 60px;
+  border: solid 1px $border;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.1s ease-in;
+
+  &:after {
+    @include svg_next($color);
+    @include svg-icon-after;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+// 框線顏色,文字顏色,背景顏色
+@mixin button-nomal($border,$color,$active) {
+  background-color: $active;
+  color: $color;
+  display: inline-block;
+  border: solid 1px $border;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.1s ease-in;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+%button-dark {
+  // 框線顏色,文字顏色,hover文字顏色,hover背景顏色
+  @include button-border($black,$black,white,$color-main);
+  @extend %h5;
+  letter-spacing: 1.5px;
+}
+
+%button-dark_m_desktop {
+  @include breakpoint($pad-up) {
+    // 框線顏色,文字顏色,hover文字顏色,hover背景顏色
+    @include button-border($black,$black,white,$color-main);
+  }
+  @extend %h5;
+  letter-spacing: 1.5px;
+}
+
+%button-dark_s_mobile {
+  @include breakpoint($pad-down) {
+    // 框線顏色,文字顏色,hover文字顏色,hover背景顏色
+    @include button-border($black,$black,white,$color-main);
+    padding: 10px 38px 10px 20px;
+  }
+  @extend %h5;
+  letter-spacing: 1.5px;
+}
+
+%button-light {
+  @include breakpoint($pad-up) {
+    // 框線顏色,文字顏色,hover文字顏色,hover背景顏色
+    @include button-border(white,white,white,$color-main);
+  }
+  @include breakpoint($pad-down) {
+    // 框線顏色,文字顏色,hover文字顏色,背景顏色
+    @include button-bg($color-main,white,white,$color-main);
+  }
+  @extend %h5;
+  letter-spacing: 1.5px;
+}
+
+%button-main {
+  // 框線顏色,文字顏色,hover文字顏色,背景顏色
+  @include button-bg($color-main,white,white,$color-main);
+  @extend %h5;
+  letter-spacing: 1.5px;
+}
+
+%button-main_m_desktop {
+  @include breakpoint($pad-up) {
+    // 框線顏色,文字顏色,hover文字顏色,背景顏色
+    @include button-bg($color-main,white,white,$color-main);
+  }
+  @extend %h5;
+  letter-spacing: 1.5px;
+}
+
+%button-main_s_mobile {
+  @include breakpoint($pad-down) {
+    // 框線顏色,文字顏色,hover文字顏色,背景顏色
+    @include button-bg($color-main,white,white,$color-main);
+    padding: 10px 38px 10px 20px;
+  }
+  @extend %h5;
+  letter-spacing: 1.5px;
+}
+
+%button-buy {
+  // 框線顏色,文字顏色,hover文字顏色,背景顏色
+  @include button-bg($color-main,white,white,$color-buy);
+  @extend %h5;
+  letter-spacing: 1.5px;
+}
+
+%button-nomal {
+  // 框線顏色,文字顏色,背景顏色
+  @include button-nomal($color-main,white,$color-main);
+  @extend %h5;
+  letter-spacing: 1.5px;
+}
+//------------------------------------------------------------------------------
+// menu [effect] for mobile
+//------------------------------------------------------------------------------
+// .effect-menu-left-slide {
+//   #menu {
+//     left: 0;
+//   }
+// }
+//
+// .effect-body-left-slide {
+//   left: $menu-width;
+//
+//   #menu {
+//     left: 0;
+//   }
+// }
+//
+// .effect-menu-left-slide {
+//   left: -$menu-width !important;
+// }
+//
+// .effect-menu-content-left-slide {
+//   left: 0 !important;
+// }
+//------------------------------------------------------------------------------
+// fixed top [effect]
+//------------------------------------------------------------------------------
+
+.effect_fixed {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  //background: white; // 假底色
+}
+// .sub-nav-1 當視窗滑動到此 項目tab 它才會固定在上方
+
+.sub-nav-1,
+.sub-nav-2 {
+  &.effect_fixed {
+    position: relative;
+  }
+
+  &.active {
+    position: fixed;
+    z-index: 5;
+  }
+}
+
+#main-nav {
+  &.effect_fixed {
+    top: 60px;
+  }
+}
+
+.product-nav {
+  li {
+    cursor: pointer;
+
+    a.effect_fixed {
+      position: relative;
+
+      &.active {
+        position: fixed;
+        top: 0;
+        z-index: 4;
+      }
+    }
+  }
+}
+// article[data-tab-content="v1"],
+// article[data-tab-content="x990"],
+// article[data-tab-content="counter_bpos"],
+// article[data-tab-content="counter_b1pos-cloud"],
+// article[data-tab-content="counter_b1pos"] {
+//   .sub-nav-1.effect_fixed {
+//     top: 52px;
+//   }
+// }
+//------------------------------------------------------------------------------
+// body
+//------------------------------------------------------------------------------
+
+body {
+  position: relative;
+  left: 0;
+  color: $black;
+  transition: all $menu-effect-time ease-in-out;
+
+  > * {
+    background-color: $body-bg-color;
+  }
+
+  &.effect-body-left-slide {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
+}
+//------------------------------------------------------------------------------
+// main
+//------------------------------------------------------------------------------
+
+main {
+  position: relative;
+  margin-top: 110px;
+}
+
+body#index,
+body#page-about,
+body#page-news,
+body#page-success,
+body#page-support {
+  main {
+    margin-top: 60px;
+  }
+}
+//------------------------------------------------------------------------------
+// HEADER
+//------------------------------------------------------------------------------
+
+body > header {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  @extend %clearfix;
+  @include breakpoint($pad-down) {
+    z-index: 0;
+  }
+
+  &:before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $body-bg-color;
+    display: inline-block;
+    //border-bottom: 1px solid $color-darkddd;
+  }
+
+  > article {
+    @extend %content;
+    position: static;
+  }
+}
+
+.menu-icon {
+  float: left;
+  @include btn-text(#333333);
+  display: none;
+  @include breakpoint($pad-down) {
+    display: inline-block;
+  }
+
+  a {
+    padding: 17px 12px 17px 0;
+  }
+
+  img {
+    $color: $color-main;
+    @include svg("data:image/svg+xml,%3Csvg fill='#{$color}' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 50 50' version='1.1' width='50px' height='50px'%3E%3Cg id='surface1'%3E%3Cpath style=' ' d='M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z '/%3E%3C/g%3E%3C/svg%3E");
+    @include scale(25px,25px);
+  }
+}
+
+.logo {
+  display: inline-block;
+  float: left;
+  margin-right: 15px;
+  @include breakpoint($pad-up) {
+    margin-left: 15px;
+  }
+
+  img {
+    @include img("header/logo.png");
+    @include scale(160px,60px);
+    @include breakpoint($pad-down) {
+      @include scale(135px,60px);
+    }
+  }
+}
+
+%mobile-menu-content {
+  transition: all $menu-effect-time ease-in-out;
+  @include breakpoint($pad-down) {
+    position: fixed;
+    overflow-y: scroll;
+    height: 100%;
+    width: $menu-width;
+    top: 0;
+    left: $menu-width;
+    padding-top: $menu-back-icon-height;
+    z-index: 10;
+    background-color: white;
+  }
+}
+// #menu ol {
+//   $link-height: 60px;
+//   position: static;
+//   display: inline-block;
+//   float: left;
+//   @include breakpoint($pad-down) {
+//     position: fixed;
+//     overflow-y: scroll;
+//     height: 100%;
+//     width: $menu-width;
+//     background-color: #f8f8f8;
+//     top: 0;
+//     left: 0;
+//     z-index: -100;
+//     transition: all $menu-effect-time ease-in-out;
+//   }
+//
+//   &.desktop {
+//     display: none;
+//     @include breakpoint($table-up) {
+//       display: block;
+//     }
+//   }
+//
+//   &.mobile {
+//     display: none;
+//     @include breakpoint($table-down) {
+//       display: block;
+//     }
+//   }
+//
+//   figure {
+//     text-align: left;
+//   }
+//
+//   > li {
+//     position: static;
+//     display: inline-block;
+//     @include breakpoint($pad-down) {
+//       display: block;
+//       border-bottom: solid 1px #ddd;
+//     }
+//
+//     > a {
+//       height: $link-height;
+//       line-height: $link-height;
+//       padding: 0 10px;
+//
+//       img {
+//         $color: #007ac3;
+//         @include svg_desktop("data:image/svg+xml,%3Csvg fill='#{$color}' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='200px' height='200px' viewBox='0 0 200 200' enable-background='new 0 0 200 200' xml:space='preserve'%3E%3Cpath d='M108.932,147.827c-4.97,5.708-13.111,5.708-18.102,0L12.711,58.568c-4.97-5.692-2.842-10.351,4.699-10.351h164.944 c7.574,0,9.685,4.666,4.692,10.351L108.932,147.827z'/%3E%3C/svg%3E");
+//         @include scale(12px,12px);
+//       }
+//     }
+//   }
+//
+//   article {
+//     background: #f8f8f8;
+//     @include breakpoint($pad-up) {
+//       position: absolute;
+//       width: 100vw;
+//       left: 0;
+//       display: none;
+//       box-shadow: 0 1px 8px rgba(100, 100, 100, 0.6);
+//       border-top: solid 1px transparent;
+//
+//       &.active {
+//         display: block;
+//       }
+//     }
+//     @include breakpoint($pad-down) {
+//       display: block;
+//     }
+//     @extend %mobile-menu-content;
+//
+//     > section {
+//       @extend %content;
+//
+//       > figure {
+//         background-color: $color-white;
+//         @include breakpoint($pad-up) {
+//           margin-left: 170px;
+//         }
+//
+//         > *:nth-child(2) {
+//           @extend %col-3_desktop;
+//         }
+//
+//         > *:nth-child(3) {
+//           @extend %col-4_desktop;
+//         }
+//
+//         > *:nth-child(4) {
+//           @extend %col-5_desktop;
+//         }
+//
+//         > button {
+//           $color: #888;
+//           $size: $menu-back-icon-height - 20px;
+//           @extend %mobile-menu-content;
+//           @include btn-simple(#e6dbe3);
+//           height: inherit;
+//           padding-top: 0;
+//           z-index: 9999;
+//           overflow: hidden;
+//           @include breakpoint($pad-up) {
+//             width: 0;
+//           }
+//
+//           img {
+//             @include svg("data:image/svg+xml,%3Csvg fill='#{$color}' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='200px' height='200px' viewBox='0 0 200 200' enable-background='new 0 0 200 200' xml:space='preserve'%3E%3Cpolygon points='139.523,189.431 50.118,100.025 139.523,10.619 149.879,20.977 70.832,100.025 149.879,179.074 '/%3E%3C/svg%3E");
+//             @include scale($size,$size);
+//           }
+//
+//           a {
+//             height: $menu-back-icon-height;
+//             line-height: $menu-back-icon-height;
+//             color: $color;
+//             vertical-align: top;
+//             text-align: left !important;
+//             padding-left: 15px;
+//           }
+//         }
+//       }
+//     }
+//   }
+//
+//   .menu-features,
+//   .menu-hardware,
+//   .menu-set {
+//     @extend %mobile-menu-content;
+//   }
+//
+//   .menu-hardware,
+//   .menu-set {
+//     li figure {
+//       display: none;
+//     }
+//   }
+//
+//   .menu-features,
+//   .menu-hardware {
+//     li a {
+//       padding-left: 20px;
+//       border-bottom: solid 1px #eaeaea;
+//       min-height: 46px;
+//       line-height: 46px;
+//     }
+//   }
+//
+//   .menu-set {
+//     li a {
+//       padding: 10px 20px;
+//       cursor: default;
+//
+//       &.active,
+//       &:hover {
+//         background-color: $color-main;
+//         color: $color-white;
+//       }
+//     }
+//   }
+//
+//   .menu-features {
+//     .overview-title {
+//       padding: 15px 0 20px 20px;
+//
+//       [class^='icon'] {
+//         @include scale(30px,30px);
+//         margin-right: 15px;
+//       }
+//
+//       h5 {
+//         display: inline-block;
+//         vertical-align: middle;
+//       }
+//     }
+//
+//     ol {
+//       [class^='icon']:not(.icon-new) {
+//         @include scale(25px,25px);
+//         margin-right: 15px;
+//       }
+//     }
+//   }
+//
+//   .detail-area {
+//     img {
+//       @extend %scale-2x1;
+//     }
+//     @include breakpoint($pad-down) {
+//       display: none;
+//     }
+//   }
+//
+//   .category {
+//     @include bg("header/category_bg.jpg");
+//     line-height: 30px;
+//     padding-left: 10px;
+//   }
+//
+//   .title {
+//     background-color: #f8f8f8;
+//     border-bottom: solid 1px #eee;
+//     padding: 4px 15px;
+//   }
+// }
+
+[data-tab-content="menu-retial"] {
+  .menu-set li:nth-child(5) {
+    display: none;
+  }
+
+  .link {
+    float: right;
+    position: relative;
+    top: 15px;
+
+    a {
+      font-size: 15px;
+    }
+  }
+}
+//------------------------------------------------------------------------------
+// FOOTER
+//------------------------------------------------------------------------------
+
+body > footer {
+  article {
+    @extend %content;
+  }
+
+  .link {
+    background-color: #eeeeee;
+    @include nav(23px);
+    padding: 60px 15px;
+    @include breakpoint($pad-down) {
+      padding: 0;
+      display: none;
+    }
+
+    nav {
+      @extend %list-grid-6_desktop;
+      @extend %list-grid-2_mobile;
+    }
+
+    figure {
+      text-align: left;
+      padding-left: 15px;
+      border-left: solid 1px $color-dark;
+      min-height: 280px;
+      @include breakpoint($pad-down) {
+        border: none;
+        min-height: inherit;
+        padding-left: 0;
+      }
+
+      &:first-of-type {
+        border-left: none;
+      }
+
+      ol {
+        @extend %list-grid-1;
+        text-align: left;
+
+        a {
+          padding: 0 6px;
+          font-size: 15px;
+          @include breakpoint($pad-down) {
+            float: left;
+          }
+        }
+
+        h5 {
+          @include breakpoint($pad-down) {
+            float: left;
+          }
+        }
+      }
+    }
+
+    h4 {
+      @include breakpoint($pad-down) {
+        margin-top: 25px;
+      }
+    }
+
+    .products-set {
+      ol {
+        margin-bottom: 15px;
+      }
+
+      li:first-child a {
+        color: $color-main;
+      }
+    }
+
+    .contact-us {
+      a[href^="tel:"] {
+        color: #0a33a3;
+        font-size: 130%;
+        margin: 10px 0;
+      }
+
+      small {
+        text-align: center;
+        display: block;
+        max-width: 130px;
+      }
+    }
+  }
+
+  .copyright {
+    float: none;
+    width: 100%;
+    @include breakpoint($pad-down) {
+      display: none;
+    }
+
+    article {
+      @extend %middle;
+    }
+
+    figure {
+      display: inline-block;
+      float: left;
+      @include breakpoint($pad-down) {
+        float: none;
+      }
+
+      &:nth-child(1) {
+        i {
+          @extend %h5;
+          color: #555;
+          vertical-align: sub;
+
+          &:hover {
+            color: $color-main;
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        ol {
+          @extend %list-grid-4;
+          margin-left: 15px;
+
+          a {
+            padding: 0 6px;
+          }
+
+          i {
+            @extend %h3;
+            color: #555;
+
+            &:hover {
+              color: $color-main;
+            }
+          }
+        }
+      }
+
+      &:nth-child(3) {
+        float: right;
+        text-align: right;
+        @extend %small;
+      }
+    }
+  }
+
+  aside {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 10;
+    display: none;
+    @include breakpoint($pad-down) {
+      right: 10px;
+      bottom: 0;
+    }
+
+    ol {
+      li {
+        max-width: 60px;
+
+        a {
+          width: 40px;
+          text-align: center;
+          @extend %small;
+        }
+      }
+
+      li:first-child {
+        a[data-type="button"] {
+          // 框線顏色,背景顏色,文字顏色,hover文字顏色,hover背景顏色
+          @include button-default(transparent,#f7931eb3,white,white,#f7931e);
+          line-height: 16px;
+          padding: 3px;
+        }
+      }
+
+      li:last-child {
+        a[data-type="button"] {
+          $color: rgba(0, 0, 0, 0.3);
+          $color2: rgba(0, 0, 0, 0.7);
+          // 框線顏色,背景顏色,文字顏色,hover文字顏色,hover背景顏色
+          @include button-default(transparent,$color,white,white,$color2);
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}
+//------------------------------------------------------------------------------
+// main-nav & .sub-nav-1
+//------------------------------------------------------------------------------
+
+#main-nav,
+.sub-nav-1,
+.sub-nav-2 {
+  @include nav(50px);
+  z-index: 1;
+  border-bottom: solid 1px #ddd;
+
+  a {
+    padding: 0 15px;
+
+    &.active,
+    &:hover {
+      @include breakpoint($pad-up) {
+        color: $color-main;
+        box-shadow: 0 -2px $color-main inset, 0 2px $color-main;
+        background-color: #eee;
+
+        &::before {
+          display: inline-block;
+        }
+      }
+    }
+
+    &::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid $color-main;
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      display: none;
+    }
+  }
+}
+
+.sub-nav-1,
+.sub-nav-2 {
+  a {
+    &.active,
+    &:hover {
+      box-shadow: 0 -4px $color-main inset;
+      background-color: transparent;
+    }
+
+    &::before {
+      bottom: 4px;
+    }
+  }
+}
+
+#main-nav {
+  z-index: 7;
+  border-top: solid 1px #ddd;
+  background-color: white;
+
+  [data-toggle-nav] {
+    display: inline-block;
+    float: right;
+    height: 50px;
+    line-height: 50px;
+    display: none;
+    color: $black;
+
+    span {
+      @extend %h5;
+      position: relative;
+      display: inline-block;
+      padding-right: 20px;
+
+      &::after {
+        display: block;
+        content: '';
+        @include svg_down(#dddddd);
+        @include scale(15px,15px);
+        position: absolute;
+        top: 2px;
+        right: 0;
+      }
+    }
+
+    i,
+    img {
+      display: none;
+    }
+
+    &:after {
+      @extend .bcc-down;
+      margin-left: 6px;
+      color: #ddd;
+    }
+
+    &.active {
+      color: $color-main;
+
+      &:after {
+        color: $color-main;
+      }
+    }
+    @include breakpoint($pad-down) {
+      display: block;
+    }
+  }
+
+  article {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  h1 {
+    margin: 0 15px;
+  }
+
+  ol {
+    float: right;
+    @include breakpoint($pad-down) {
+      float: none;
+    }
+
+    li {
+      @include breakpoint($pad-down) {
+        display: block;
+        border-top: solid 1px #ddd;
+      }
+    }
+  }
+}
+
+.sub-nav-1,
+.sub-nav-2 {
+  border-top: solid 1px #ddd;
+  background-color: white;
+
+  article {
+    overflow: auto;
+  }
+
+  h1 {
+    display: none;
+  }
+
+  a[data-type="button"] {
+    display: none;
+  }
+
+  ol {
+    float: left;
+    @include breakpoint($pad-down) {
+      white-space: nowrap;
+      overflow: auto;
+      display: block;
+    }
+  }
+}
+//------------------------------------------------------------------------------
+// .pagination-bottom (頁數按鈕)
+//------------------------------------------------------------------------------
+
+#pagination_bottom {
+  $size: 20px;
+  $size-s: 50px;
+  position: fixed;
+  right: 0;
+  top: 100px;
+  @include breakpoint($pad-down) {
+    top: inherit;
+    bottom: 0;
+    background-color: white;
+    box-shadow: -1px -1px 5px rgba(0,0,0,0.4);
+    height: 150px;
+    overflow-y: scroll;
+    padding: 0;
+  }
+
+  ol {
+    @include breakpoint($pad-down) {
+      padding: 10px;
+    }
+  }
+
+  li {
+    display: block;
+    float: none;
+    margin: 10px;
+    @include breakpoint($pad-down) {
+      display: inline-block;
+      margin: 0;
+      float: left;
+    }
+
+    a {
+      padding: 0;
+      width: $size;
+      height: $size;
+      line-height: $size - 2px;
+      border-radius: 50%;
+      @extend %text-hide;
+      background-color: #948890;
+      @include breakpoint($pad-down) {
+        text-indent: inherit;
+        width: $size-s;
+        height: $size-s;
+        line-height: $size-s - 2px;
+        border-radius: 0;
+        background-color: transparent;
+      }
+
+      &.active {
+        border: 1px solid #ddd;
+        background-color: #4CAF50;
+      }
+    }
+  }
+}
+
+section[class*="page-"] {
+  &.active {
+    border: solid 10px red;
+  }
+}
+//------------------------------------------------------------------------------
+// #ad_area (廣告區塊)
+//------------------------------------------------------------------------------
+
+body.ADanimate #ad_area {
+  top: 0;
+  opacity: 1;
+}
+
+body#index header,
+body#index main {
+  transition: all 0.2s ease-in-out;
+}
+
+body.ADanimate header {
+  top: 100px;
+}
+
+body.ADanimate .menu {
+  top: 161px;
+}
+
+body#index.ADanimate main {
+  margin-top: 160px;
+}
+
+body.ADanimate .cd-nav {
+  top: 160px;
+  padding-bottom: 100px;
+}
+
+#ad_area {
+  height: 100px;
+  overflow: hidden;
+  background-color: #eeeeee;
+  position: fixed;
+  width: 100%;
+  display: block;
+  box-shadow: 0 1px 3px rgba(51, 51, 51, 0.5);
+  top: -100px;
+  opacity: 0;
+  z-index: 9999;
+  transition: all 0.2s ease-in-out;
+  @include bg("AD/bg.jpg");
+
+  img {
+    @include img_desktop("AD/01.png");
+    @include img_mobile("AD/02.png");
+    padding-bottom: 100px;
+    background-position: bottom;
+  }
+
+  .close {
+    color: #cacaca;
+    float: right;
+    font-size: 8px;
+    font-weight: 100;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    background-color: #fff;
+    border: solid 1px #e0e0e0;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    line-height: 23px;
+    text-indent: 1px;
+    z-index: 20;
+    cursor: pointer;
+    @include breakpoint($desk-up) {
+      position: absolute;
+      left: 1160px;
+      right: 0;
+      margin: 0 auto;
+    }
+    @include breakpoint($desk-down) {
+      position: absolute;
+      right: 5px;
+    }
+  }
+
+  a[data-type="button"] {
+    @extend %btn-full;
+    width: 100%;
+  }
+}
+//------------------------------------------------------------------------------
+// SECTION style
+//------------------------------------------------------------------------------
+
+%section {
+  @extend %clearfix;
+  margin: 0 auto $section-space;
+
+  > article,
+  figure > article {
+    @extend %content;
+    @include breakpoint($pad-up) {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    @include breakpoint($pad-down) {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+  }
+
+  hgroup {
+    margin-bottom: 60px;
+    @include breakpoint($pad-down) {
+      margin-bottom: 35px;
+    }
+
+    > * {
+      //white-space: nowrap;
+      font-weight: bold;
+    }
+
+    p {
+      margin: 15px 0;
+    }
+
+    em {
+      background-color: white;
+      border-radius: 20px;
+      padding: 5px 25px;
+      font-style: normal;
+      font-weight: bold;
+      box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .5);
+      margin-bottom: 20px;
+    }
+  }
+}
+
+%section-normal {
+  @extend %clearfix;
+  margin: 0 auto $section-space;
+
+  > article,
+  figure > article {
+    @extend %content;
+    @include breakpoint($pad-up) {
+      padding-top: 6%;
+      padding-bottom: 6%;
+    }
+    @include breakpoint($pad-down) {
+      padding-top: 20%;
+      padding-bottom: 20%;
+    }
+  }
+
+  hgroup {
+    margin-bottom: 60px;
+    @include breakpoint($pad-down) {
+      margin-bottom: 35px;
+    }
+
+    > * {
+      //white-space: nowrap;
+      font-weight: bold;
+    }
+
+    p {
+      margin: 15px 0;
+    }
+
+    em {
+      background-color: white;
+      border-radius: 20px;
+      padding: 5px 25px;
+      font-style: normal;
+      font-weight: bold;
+      box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .5);
+      margin-bottom: 20px;
+    }
+  }
+}
+
+%section-mid {
+  @extend %clearfix;
+  margin: 0 auto $section-space;
+
+  > article,
+  figure > article {
+    @extend %content;
+    @include breakpoint($pad-up) {
+      padding-top: 15%;
+      padding-bottom: 15%;
+    }
+    @include breakpoint($pad-down) {
+      padding-top: 50%;
+      padding-bottom: 50%;
+    }
+  }
+
+  hgroup {
+    margin-bottom: 60px;
+    @include breakpoint($pad-down) {
+      margin-bottom: 35px;
+    }
+
+    > * {
+      //white-space: nowrap;
+      font-weight: bold;
+    }
+
+    p {
+      margin: 15px 0;
+    }
+
+    em {
+      background-color: white;
+      border-radius: 20px;
+      padding: 5px 25px;
+      font-style: normal;
+      font-weight: bold;
+      box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .5);
+      margin-bottom: 20px;
+    }
+  }
+}
+
+%section-long {
+  margin-bottom: $section-space;
+
+  > article,
+  figure > article {
+    @extend %content;
+    @include breakpoint($pad-up) {
+      padding-top: 10%;
+      padding-bottom: 10%;
+    }
+    @include breakpoint($pad-down) {
+      padding-top: 20%;
+      padding-bottom: 100%;
+    }
+  }
+
+  hgroup {
+    margin-bottom: 60px;
+    @include breakpoint($pad-down) {
+      margin-bottom: 35px;
+    }
+
+    > * {
+      white-space: nowrap;
+      font-weight: bold;
+    }
+
+    p {
+      margin: 15px 0;
+    }
+
+    em {
+      background-color: white;
+      border-radius: 20px;
+      padding: 5px 25px;
+      font-style: normal;
+      font-weight: bold;
+      box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .5);
+      margin-bottom: 20px;
+    }
+  }
+}
+// 左文 右圖
+
+%section-img-right {
+  > article {
+    > figure {
+      > * {
+        @extend %web_span-2;
+        @extend %mob_span-1;
+      }
+      @extend %middle_desktop;
+    }
+  }
+}
+// 左圖 右文
+
+%section-img-left {
+  > article {
+    > figure {
+      > * {
+        @extend %web_span-2;
+        @extend %mob_span-1;
+      }
+      @extend %middle_desktop;
+
+      > hgroup {
+        @extend %position-right_desktop;
+      }
+
+      > figure {
+        @extend %position-left_desktop;
+      }
+    }
+  }
+}
+//------------------------------------------------------------------------------
+// BANNER style
+//------------------------------------------------------------------------------
+
+%banner_restaurant-solution {
+  background-size: auto, cover;
+  background-position: center bottom, center center;
+  background-repeat: no-repeat, no-repeat;
+  @include breakpoint($pad-down) {
+    background-size: 290%, cover;
+  }
+
+  > article {
+    @extend %content;
+    @include breakpoint($pad-up) {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    @include breakpoint($pad-down) {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    hgroup {
+      img {
+        @extend %scale-10x1_desktop;
+        @extend %scale-4x1_mobile;
+      }
+
+      h1 {
+        @extend %text-hide;
+      }
+
+      h3 {
+        font-weight: bold;
+      }
+
+      h5 {
+        opacity: 0.6;
+      }
+
+      em {
+        @extend %h2;
+        font-size: 150%;
+        font-family: sans-serif;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+%banner_main-svg {
+  & {
+    @extend %list-grid-4;
+    max-width: 480px;
+    margin: 0 auto;
+    @include breakpoint($pad-down) {
+      max-width: 250px;
+    }
+
+    figure {
+      padding: 15% 25%;
+      @include breakpoint($pad-down) {
+        padding: 14% 0;
+      }
+
+      img {
+        @extend %scale-2x1_mobile;
+      }
+
+      h6 {
+        padding-top: 5px;
+      }
+    }
+  }
+}
+//------------------------------------------------------------------------------
+// SQUARE style
+//------------------------------------------------------------------------------
+// 方形 svg 樣式
+
+%square-block {
+  > article > figure {
+    @extend %col-5_desktop;
+  }
+
+  ol {
+    margin-bottom: 40px;
+    @include breakpoint($pad-down) {
+      max-width: 200px;
+      margin: 0 auto 35px;
+    }
+
+    li {
+      figure {
+        padding: 5%;
+      }
+
+      h6 {
+        margin: 10px 0;
+        display: inline-block;
+      }
+
+      span {
+        display: inline-block;
+        padding: 10%;
+        border-radius: 6px;
+      }
+
+      img {
+        @include scale(60px,60px);
+      }
+    }
+  }
+}
+// 圓形 svg 樣式
+
+%circle-block {
+  li {
+    figure {
+      padding: 5%;
+    }
+
+    h6 {
+      margin: 10px 0;
+      display: block;
+    }
+
+    span {
+      display: inline-block;
+      padding: 15%;
+      border-radius: 50%;
+    }
+
+    img {
+      @include scale(42px,42px);
+    }
+  }
+}
+//------------------------------------------------------------------------------
+// EVENT style
+//------------------------------------------------------------------------------
+// 項目 樣式
+
+%event {
+  // width: 100%;
+  // margin: 0;
+  li {
+    img {
+      @include breakpoint($pad-up) {
+        @include scale(150px,150px);
+      }
+      @include breakpoint($pad-down) {
+        @include scale(120px,120px);
+      }
+    }
+    margin: 25px 0;
+    @include breakpoint($pad-down) {
+      margin: 15px 0;
+    }
+
+    h5 {
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    p {
+      @extend %h6;
+      white-space: nowrap;
+      margin: 10px 0;
+    }
+  }
+}
+// 影音 樣式
+
+%video-box {
+  $color: white;
+  color: $color;
+
+  figure {
+    border: solid 1px $color;
+    margin: 15px;
+    padding: 20% 0;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  h2 {
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+
+  span {
+    margin-top: 25px;
+    display: block;
+  }
+
+  img {
+    @include scale(120px,120px);
+    @include svg("data:image/svg+xml,%3Csvg fill='#{$color}' version='1.1' id='圖層_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='200px' height='200px' viewBox='0 0 200 200' enable-background='new 0 0 200 200' xml:space='preserve'%3E%3Cpath d='M100,193.001c-51.28,0-93-41.721-93-93c0-51.28,41.72-93,93-93c51.28,0,93,41.72,93,93 C193,151.28,151.28,193.001,100,193.001 M100,19c-44.664,0-81,36.336-81,81c0,44.663,36.336,81,81,81c44.663,0,81-36.337,81-81 C181,55.336,144.663,19,100,19'/%3E%3Cpolygon points='75.745,138.143 75.745,63.633 144.255,100.888 '/%3E%3C/svg%3E");
+    //animation: bounceIn 1s infinite;
+  }
+
+  a[data-type="button"] {
+    @extend %btn-full;
+  }
+}
+//-----------------------------------------------------------------------------
+// 燈 箱 light-box
+//-----------------------------------------------------------------------------
+
+#light-box {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.3s ease-in;
+  display: none;
+
+  &.active {
+    display: block;
+
+    .overlay {
+      display: block;
+    }
+  }
+
+  .close {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    font-size: 35px;
+    width: 50px;
+    color: #888;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  h4 {
+    margin: 12px 50px 0 12px;
+  }
+
+  article {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 1002;
+    overflow: auto;
+    width: 75%;
+    margin: 0 auto;
+    max-width: 960px;
+    transition: all 0.3s ease-in;
+    @include breakpoint($pad-down) {
+      width: 90%;
+    }
+
+    section {
+      padding: 15px;
+      @include breakpoint($pad-down) {
+        padding: 5px;
+      }
+
+      figure {
+        @extend %video;
+      }
+    }
+  }
+
+  .overlay {
+    background-color: rgba(0,0,0,.5);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: none;
+    transition: all 0.3s ease-in;
+  }
+}
+//-----------------------------------------------------------------------------
+// owl-carousel
+//-----------------------------------------------------------------------------
+
+%owl-nav {
+  .owl-prev {
+    left: 15px;
+
+    &:before {
+      content: "\E002";
+    }
+  }
+
+  .owl-next {
+    right: 15px;
+
+    &:before {
+      content: "\E024";
+    }
+  }
+}
+
+%owl-nav-square {
+  @extend %content;
+  position: relative;
+  top: 25px;
+  @include breakpoint($pad-down) {
+    display: none;
+  }
+  @extend %owl-nav;
+
+  .owl-next,
+  .owl-prev {
+    margin: 5px;
+    background: rgba(51,51,51,.1);
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 10px;
+    position: absolute;
+
+    &:hover {
+      background: rgba(51,51,51,.3);
+    }
+
+    &:before {
+      display: block;
+      font-family: "bccFont";
+      font-size: 1.2em;
+      color: #FFF;
+      text-align: center;
+    }
+  }
+}
+
+%owl-nav-cuboid {
+  @extend %content;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  @include breakpoint($pad-down) {
+    display: none;
+  }
+  @extend %owl-nav;
+
+  .owl-next,
+  .owl-prev {
+    margin: 5px;
+    background: rgba(51,51,51,.1);
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 30px 10px;
+    position: absolute;
+
+    &:hover {
+      background: rgba(51,51,51,.3);
+    }
+
+    &:before {
+      display: block;
+      font-family: "bccFont";
+      font-size: 1.2em;
+      color: $black;
+      text-align: center;
+    }
+  }
+}
+
+%owl-dots-cuboid {
+  width: 50%;
+  margin: 45px auto 15px;
+  @include breakpoint($pad-down) {
+    display: none;
+  }
+
+  .owl-dot {
+    display: inline-block;
+    zoom: 1;
+
+    &.active span {
+      background: $color-main;
+    }
+
+    span {
+      width: 50px;
+      height: 5px;
+      margin: 5px 7px;
+      background: #ddd;
+      display: block;
+      -webkit-backface-visibility: visible;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        background: $color-main;
+      }
+    }
+  }
+}

@@ -1,0 +1,260 @@
+
+// .menu
+.menu
+  //+table-box
+  background-color: $white
+  border-bottom: 1px solid #ddd
+
+  .container
+    +container($container)
+    position: relative
+
+  .Logo
+    //+table-item
+    text-indent: -9999px
+    width: 160px
+    height: 60px
+    img
+      position: absolute
+      left: 0
+      top: 0
+
+  #btn_closemenu
+    color: #cacaca
+    float: right
+    font-size: 13px
+    font-weight: 100
+    position: fixed
+    top: 5px
+    right: 5px
+    background-color: #fff
+    border: solid 1px #e0e0e0
+    border-radius: 50%
+    width: 30px
+    height: 30px
+    line-height: 28px
+    text-indent: 2px
+
+  nav.main-nav
+    //+table-item
+    ul
+      li
+        display: inline-block
+        float: left
+        a
+          padding: 0 20px
+          font-size: 1em
+          display: block
+          height: 60px
+          line-height: 60px
+          cursor: pointer
+
+  button
+    //+table-item
+    @extend %btn-default
+    position: absolute
+    top: 20px
+    right: 0
+
+
+
+
+
+
+
+
+// menu content area
+section#main_menu
+  position: relative
+  display: block
+
+ul#main_menu_tab
+  display: block
+  clear: both
+  li
+    display: inline-block
+    float: left
+    a
+      display: inline-block
+      float: left
+      padding: 6px 12px
+      cursor: pointer
+
+div#main_menu_content
+   display: block
+   clear: both
+
+div#main_menu_content > ul
+  display: none
+  $width: 33.333%
+  position: relative
+  &.active
+    display: block
+  li a.category
+    width: $width
+    display: inline-block
+    background-color: #9c9c9c
+  li a.category-title
+    width: $width
+    display: inline-block
+    &.active h4
+      color: red
+  ul.features
+    display: none
+    width: $width
+    position: absolute
+    top: 0
+    left: $width
+    &.active
+      display: block
+  ul.info
+    display: none
+    width: $width
+    position: absolute
+    top: 0
+    left: $width*2
+    &.active
+      display: block
+
+
+// 控制 每個項目 功能模組的內容
+// #retial_menu ul.features li,
+// #restaurant_menu ul.features li,
+// #software_menu ul.features li
+//   display: none
+// 零售 ---------------------
+// 行動 POS 收銀機
+ul.sub-menu-mobilepos li
+  display: none
+ul.sub-menu-mobilepos
+  li:nth-child(1),
+  li:nth-child(2),
+  li:nth-child(4),
+  li:nth-child(8),
+  li:nth-child(11),
+  li:nth-child(12)
+    display: block
+// 行動電子發票機
+ul.sub-menu-invoice li
+  display: none
+ul.sub-menu-invoice
+  li:nth-child(1),
+  li:nth-child(2),
+  li:nth-child(4),
+  li:nth-child(8),
+  li:nth-child(12)
+    display: block
+// 行動多元支付機
+ul.sub-menu-payment li
+  display: none
+ul.sub-menu-payment
+  li:nth-child(1),
+  li:nth-child(2),
+  li:nth-child(4),
+  li:nth-child(8),
+  li:nth-child(11)
+    display: block
+// 流通大師 B1POS
+ul.sub-menu-b1pos li
+  display: none
+ul.sub-menu-b1pos
+  li:nth-child(1),
+  li:nth-child(2),
+  li:nth-child(4),
+  li:nth-child(5),
+  li:nth-child(6),
+  li:nth-child(7),
+  li:nth-child(8),
+  li:nth-child(12),
+  li:nth-child(13)
+    display: block
+// 流通大師 BPOS
+ul.sub-menu-bpos li
+  display: none
+ul.sub-menu-bpos
+  li:nth-child(1),
+  li:nth-child(2),
+  li:nth-child(4),
+  li:nth-child(5),
+  li:nth-child(6),
+  li:nth-child(7),
+  li:nth-child(8),
+  li:nth-child(12),
+  li:nth-child(13)
+    display: block
+// 流通大師 BSMS
+ul.sub-menu-bsms li
+  display: none
+ul.sub-menu-bsms
+  li:nth-child(1),
+  li:nth-child(2),
+  li:nth-child(4),
+  li:nth-child(5),
+  li:nth-child(6),
+  li:nth-child(7),
+  li:nth-child(8),
+  li:nth-child(9),
+  li:nth-child(10),
+  li:nth-child(11),
+  li:nth-child(12),
+  li:nth-child(13)
+    display: block
+// 餐飲 ---------------------
+// 雲端點餐機
+ul.sub-menu-webmenu li
+  display: none
+ul.sub-menu-webmenu
+  li:nth-child(1),
+  li:nth-child(2),
+  li:nth-child(11),
+  li:nth-child(12),
+  li:nth-child(13)
+    display: block
+// 軟體 ---------------------
+// BPOS ( 雲端產品 )
+.sub-menu-bpos-software li
+  display: none
+.sub-menu-bpos-software
+  li:nth-child(1),
+  li:nth-child(3),
+  li:nth-child(4),
+  li:nth-child(5),
+  li:nth-child(6),
+  li:nth-child(7),
+  li:nth-child(8),
+  li:nth-child(12),
+  li:nth-child(13)
+    display: block
+// 硬體
+ul.sub-menu-hardware
+  li
+    display: none
+  &.active li
+    display: block
+
+ul.info
+  display: none
+  &.active
+    display: block
+
+
+
+// #menu-box
+//   position: relative
+//   >li
+//     background-color: #ddd
+//     &:hover >ul
+//       display: block
+//     >ul
+//       background-color: #dd5f5f
+//       position: absolute
+//       top: 0
+//       height: 100%
+//       left: 100px
+//       display: none
+//       >li >ul
+//         background-color: blue
+//         color: #fff
+//         position: absolute
+//         top: 0
+//         left: 200px

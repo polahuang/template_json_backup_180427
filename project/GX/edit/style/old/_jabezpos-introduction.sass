@@ -1,0 +1,150 @@
+// (jabezpos_introduction.html) 相關介紹
+.info-tab
+  $active: #3da5fb
+  background-color: #fff
+  text-align: center
+  ul.tab2
+    border-bottom: solid 4px #ccc
+    li
+      &.active,
+      &:hover
+        a
+          background-color: #fff
+          color: $active
+      a
+        color: #cccccc
+        padding-top: 17px
+        border-bottom: solid 4px
+        &:after
+          border-color: transparent transparent $active transparent
+          bottom: 4px
++media-breakpoint-down(mobile)
+  .info-tab
+    ul.tab2 li
+      width: 33.333%
+
+
+
+.bg-jabezpos-info
+  padding: 0
+  background-repeat: repeat-x
+  background-size: contain
+  background-image: url(../image/jabezpos/jabezpos_info/bg_main.jpg)
+  color: #fff
+
+.info-list
+  li
+    background-color: #fff
+    border: solid 20px #f8f8f8
+  .summary
+    padding: 5%
+    min-height: 385px
+    span
+      color: #1e4dc9
+    h5
+      color: #1e4dc9
+      display: inline-block
+      border: solid 1px #1e4dc9
+      padding: 0 10px
+    h3
+      font-size: 1.9em
+      margin-top: 10px
+    p
+      font-size: 1.1em
++media-breakpoint-down(desktop)
+  .info-list
+    .summary
+      h3
+        font-size: 1.5em
++media-breakpoint-down(tablet)
+  .bg-jabezpos-info
+    background-size: cover
+    .img-1
+      max-height: 150px
+      width: initial
+      margin: 0 auto
+    .img-2
+      max-height: 170px
+      width: initial
+      margin: 0 auto
+      padding-left: 10%
+
+  .info-list
+    .summary
+      min-height: inherit
+
+
+
+.winning-sure
+  padding: 35px 0 0
+
+.news-report
+  background-color: #fff
+  padding: 35px 0 0
+  margin: 35px 0 0
+  .info-list
+    li
+      border: solid 20px #fff
+
+
+.jabezpos-common
+  $active: #3da5fb
+  margin: 35px 0
+  > *
+    transition: all .3s ease-in
+  h3
+    text-align: center
+  h4
+    display: inline-block
+    background-color: $active
+    color: #fff
+    border-radius: 4px
+    font-size: 1.1em
+    padding: 4px 10px
+    margin: 45px 0 15px 0
+  summary::-webkit-details-marker
+    display: none
+  summary
+    font-size: 1.5em
+    color: $active
+    padding: 6px 10px
+    cursor: pointer
+    position: relative
+    padding-left: 40px
+    &:hover
+      color: lighten($active, 5%)
+    &:after
+      background: url(../image/jabezpos/jabezpos_info/com-less.png)
+      float: left
+      height: 24px
+      width: 24px
+      content: " "
+      position: absolute
+      top: 10px
+      left: 4px
+      margin-right: 10px
+      background-size: 100%
+  details[open] summary:after
+    background: url(../image/jabezpos/jabezpos_info/com-open.png)
+    background-size: 100%
+  details[open] summary ~ *
+    animation: opacity .3s ease-in-out
+  details
+    border-bottom: solid 1px #dddddd
+    p
+      margin-left: 42px
+      margin-top: 0
++media-breakpoint-down(tablet)
+  .jabezpos-common
+    summary
+      font-size: 1.2em
+      padding-left: 30px
+      &:after
+        height: 17px
+        width: 17px
+    details p
+      margin-left: 30px
+
+
+.common-details
+  padding: 15px

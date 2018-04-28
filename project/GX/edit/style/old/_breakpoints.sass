@@ -1,0 +1,9 @@
+$breakpoints: (mini:320px, phone: 420px, mobile: 767px, tablet: 990px, pad: 1044px, desktop: 1200px)
+
+=media-breakpoint-down($name)
+  @media(max-width: map-get($breakpoints, $name))
+    @content
+
+=media-breakpoint-up($name)
+  @media(min-width: map-get($breakpoints, $name)+1)
+    @content

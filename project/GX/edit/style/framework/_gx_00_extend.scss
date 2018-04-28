@@ -1,0 +1,161 @@
+/*splitfilename=gx_00_extend.css*/
+//
+//
+//
+//
+//
+//==============================================================================
+//
+// 清除浮動
+//
+// [用法] @extend %clearfix
+
+%clearfix {
+  *zoom: 1;
+
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+
+  &:before {
+    content: "";
+    display: table;
+  }
+}
+//==============================================================================
+// SHOW in 網頁版
+
+.desk {
+  @include breakpoint($pad-up) {
+    display: inline-block;
+  }
+  @include breakpoint($pad-down) {
+    display: none;
+  }
+}
+// SHOW in 手機板
+
+.mob {
+  @include breakpoint($pad-up) {
+    display: none;
+  }
+  @include breakpoint($pad-down) {
+    display: inline-block;
+  }
+}
+//==============================================================================
+//
+// 文字
+//
+// 隱藏文字
+
+%text-hide {
+  &,
+  & > * {
+    white-space: nowrap;
+    text-indent: -99999px;
+    overflow: hidden;
+    height: 0;
+  }
+}
+//
+// 文字對齊外匡
+
+%text-full {
+  text-align: justify;
+  text-justify: inter-ideograph;
+  -ms-text-justify: inter-ideograph;
+  -webkit-text-align-last: justify;
+  -moz-text-align-last: justify;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+}
+// 隱藏 區塊
+
+%hide {
+  height: 0;
+  visibility: hidden;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+// 文字置左
+%text-left {
+  text-align: left;
+}
+%text-left_desktop {
+  @include breakpoint($pad-up){
+    text-align: left;
+  }
+}
+%text-left_mobile {
+  @include breakpoint($pad-down){
+    text-align: left;
+  }
+}
+// 文字置右
+%text-right {
+  text-align: right;
+}
+%text-right_desktop {
+  @include breakpoint($pad-up){
+    text-align: right;
+  }
+}
+%text-right_mobile {
+  @include breakpoint($pad-down){
+    text-align: right;
+  }
+}
+//==============================================================================
+// 圓形
+
+%circle,
+.circle {
+  border-radius: 50%;
+  overflow: visible;
+  position: relative;
+}
+//==============================================================================
+//
+// 背景 漸層
+//
+// 線性漸層
+@mixin hr-gradient($from, $to) {
+  background: -moz-linear-gradient(top, $from 0%, $from 50%, $to 50%, $to 100%);
+  background: -webkit-linear-gradient(top, $from 0%, $from 50%, $to 50%, $to 100%);
+  background: -o-linear-gradient(to bottom, $from 0%, $from 50%, $to 50%, $to 100%);
+  background: -ms-linear-gradient(to bottom, $from 0%, $from 50%, $to 50%, $to 100%);
+  background: linear-gradient(to bottom, $from 0%, $from 50%, $to 50%, $to 100%);
+  background-color: $from;
+}
+// 中心圓 放射漸層
+@mixin radial-gradient($from, $to) {
+  background: -moz-radial-gradient(center, circle cover, $from 0%, $to 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, $from), color-stop(100%, $to));
+  background: -webkit-radial-gradient(center, circle cover, $from 0%, $to 100%);
+  background: -o-radial-gradient(center, circle cover, $from 0%, $to 100%);
+  background: -ms-radial-gradient(center, circle cover, $from 0%, $to 100%);
+  background: radial-gradient(center, circle cover, $from 0%, $to 100%);
+  background-color: $from;
+}
+//==============================================================================
+//
+// Padding / Margin
+//
+// Padding mixin
+@mixin padding($top, $right, $bottom, $left) {
+  padding: $top $right $bottom $left;
+}
+// Margin mixin
+@mixin margin($top, $right, $bottom, $left) {
+  margin: $top $right $bottom $left;
+}
+//==============================================================================
+/*split*/

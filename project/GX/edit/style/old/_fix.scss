@@ -1,0 +1,704 @@
+.body-class {
+  article .page-header {
+    z-index: 5;
+  }
+
+  .bg-gray {
+    background-color: #f8f8f8;
+  }
+
+  .btn {
+    @extend %button-nomal;
+  }
+
+  .img,
+  img {
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
+    width: auto;
+  }
+
+  header .btn-try {
+    top: 0;
+  }
+
+  main > article {
+    padding-top: 0;
+  }
+
+  footer .link article {
+    background-color: #eeeeee;
+    padding-top: 0;
+  }
+
+  footer .copyright article {
+    background-color: white;
+    padding: 0;
+  }
+
+  footer article {
+    background-color: white;
+  }
+
+  article .page-header {
+    padding-top: 0;
+    top: 61px;
+    height: initial;
+  }
+
+  .toggle-nav-main {
+    position: static;
+    right: inherit;
+    top: inherit;
+  }
+}
+
+.body {
+  article .page-header {
+    z-index: 5;
+  }
+
+  header .btn-try {
+    top: 0;
+  }
+
+  main > article {
+    padding-top: 0;
+  }
+
+  footer .link article {
+    background-color: #eeeeee;
+    padding-top: 0;
+  }
+
+  footer .copyright article {
+    background-color: none;
+    padding: 0;
+  }
+
+  article .page-header {
+    padding-top: 0;
+    top: 61px;
+    height: initial;
+  }
+
+  .toggle-nav-main {
+    position: static;
+    right: inherit;
+    top: inherit;
+  }
+}
+//-----------------------------------------------------------------------------
+
+header .nav {
+  a.active,
+  a.at {
+    color: $color-main;
+    border-bottom: 3px solid $color-main;
+
+    i.bcc-down {
+      color: $color-main;
+    }
+  }
+}
+//-----------------------------------------------------------------------------
+
+#page-support {
+  #contact {
+    display: block;
+  }
+
+  #contact-us {
+    display: block;
+  }
+
+  #contact .select-style::after {
+    display: inline-block;
+    content: '';
+    @include svg_down(#dbdbdb);
+    position: absolute;
+    right: 3%;
+    top: 15px;
+    width: 16px;
+    height: 16px;
+  }
+  #contact .gx-code {
+    float: left;
+  }
+}
+
+#page-news {
+  section {
+    text-align: left;
+  }
+
+  .news-year a {
+    display: inline-block;
+  }
+}
+
+#page-about {
+  ul.tabs li a.active {
+    background-color: white;
+  }
+
+  .timeline > li > .timeline-badge {
+    z-index: 0;
+  }
+
+  .bg-w,
+  .bg-w2,
+  .master h2,
+  .prize {
+    color: $color-main;
+  }
+
+  .dot:before {
+    background-color: $color-main;
+  }
+}
+
+#page-jabezpos-introduction {
+  .bg-jabezpos-info {
+    background-repeat: repeat-x;
+    background-size: contain;
+    @include breakpoint($pad-down) {
+      background-size: cover;
+    }
+
+    h3 {
+      margin-top: 70px;
+    }
+  }
+
+  .wrap {
+    @extend %content;
+  }
+
+  .row {
+    @extend %clearfix;
+  }
+
+  .col-tablet-3 {
+    @extend %col-3_desktop;
+  }
+
+  .col-tablet-6 {
+    @extend %col-6_desktop;
+  }
+
+  .col-12 {
+    @extend %col-12_mobile;
+  }
+
+  .winning-sure {
+    text-align: left;
+  }
+
+  .jabezpos-common,
+  .winning_sure-box {
+    background-color: #f8f8f8;
+  }
+
+  .jabezpos-common {
+    h3 {
+      margin-top: 35px;
+    }
+
+    details {
+      background-color: transparent;
+    }
+  }
+
+  ul.tab2 {
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    max-width: 900px;
+
+    li {
+      float: left;
+      width: 20%;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: -1px;
+      @include breakpoint($pad-down) {
+        width: 33.333%;
+      }
+
+      a {
+        height: 60px;
+        line-height: 60px;
+        padding: 17px 30px 0;
+        border-bottom: solid 4px;
+        line-height: 1.5;
+        @include breakpoint($pad-down) {
+          padding: 20px 10px;
+        }
+
+        &.active,
+        &:hover {
+          border-color: transparent transparent #3da5fb transparent;
+        }
+
+        &:after {
+          content: "";
+          display: inline-block;
+          border-style: solid;
+          border-width: 6px;
+          margin-left: -6px;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          border-color: transparent transparent #fff transparent;
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+#page-purchase {
+  .s-white-center {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+#page-inventory {
+  .auto,
+  .s-white-center {
+    padding-bottom: 0;
+  }
+}
+
+#page-crm {
+  .bg-gray,
+  .s-white-center {
+    padding-bottom: 0;
+  }
+}
+
+#page-payment {
+  .safe {
+    padding-bottom: 0;
+  }
+}
+
+#page-v1,
+#page-x990 {
+  // .section-v1-banner {
+  //   margin-top: 50px;
+  // }
+  article {
+    background-color: transparent;
+  }
+}
+
+#page-v1 {
+  #hardware {
+    display: none;
+  }
+
+  .v1_hardware_banner > article > figure > figure img {
+    top: 0;
+    height: 0;
+    padding-bottom: 100%;
+    width: 100%;
+  }
+
+  .v1_hardware_banner > article > figure > hgroup img {
+    height: 0;
+  }
+}
+
+#page-b1pos,
+#page-bpos {
+  article {
+    background-color: transparent;
+  }
+
+  .img,
+  img {
+    margin: 0 auto;
+  }
+}
+
+.button-main a {
+  @extend %button-nomal;
+  padding: 4px 12px 6px;
+  line-height: initial;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+header .btn-try {
+  right: 15px;
+}
+//
+
+#page-jabezpos {
+  .btn:hover {
+    color: white;
+  }
+  .bg-jabezpos-1 {
+    background-image: url("../image/product-overview/restaurant-solution/boss/banner/banner_jabezpos_1.jpg");
+    background-size: cover;
+    @include breakpoint($pad-down) {
+      background-image: url("../image/product-overview/restaurant-solution/boss/banner/jabezpos_banner_bg_xs_1.jpg");
+    }
+  }
+
+  .bg-jabezpos-2 {
+    background-image: url("../image/product-overview/restaurant-solution/boss/banner/banner_jabezpos_2.jpg");
+    background-size: cover;
+    @include breakpoint($pad-down) {
+      background-image: url("../image/product-overview/restaurant-solution/boss/banner/jabezpos_banner_bg_xs_2.jpg");
+    }
+  }
+
+  article {
+    background-color: transparent;
+  }
+
+  .img,
+  img {
+    margin: 0 auto;
+  }
+
+  article section {
+    padding: 0;
+  }
+
+
+  .jabezpos_overview_combination hgroup > * {
+    font-weight: normal;
+  }
+
+  figure figcaption,
+  figure figcaption > * {
+    white-space: inherit;
+    text-indent: inherit;
+    overflow: visible;
+    height: initial;
+  }
+
+  .bg-jabezpos-1 figcaption {
+    bottom: 40px;
+  }
+
+  .bg-jabezpos-2 figcaption > * {
+    margin: 15px 0;
+  }
+
+  .price-table {
+    padding-bottom: 60px;
+  }
+
+  [data-tab-content="jabezpos_video"] section section article {
+    padding-top: 0;
+  }
+
+  .flex-direction-nav a {
+    z-index: 3;
+  }
+}
+
+[data-tab-content="jabezpos_overview"] {
+  .slider {
+    .wrap {
+      @extend %content;
+      position: relative;
+      height: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    figure figcaption,
+    figure figcaption > * {
+      white-space: inherit;
+      text-indent: inherit;
+      overflow: visible;
+      height: initial;
+    }
+
+    .bg-jabezpos-1 figcaption {
+      bottom: 80px;
+    }
+
+    .bg-jabezpos-2 figcaption > * {
+      margin: 15px 0;
+    }
+
+    .btn {
+      background-color: #0c3cbc;
+      color: #fff;
+      @extend %button-dark;
+      padding: 10px 25px;
+    }
+
+    .bg-jabezpos-1 {
+      background-image: url("../image/product-overview/restaurant-solution/boss/banner/banner_jabezpos_1.jpg");
+      background-size: cover;
+
+      a::after {
+        display: none;
+      }
+
+      a:hover::after {
+        display: none;
+      }
+      @include breakpoint($pad-down) {
+        background-image: url("../image/product-overview/restaurant-solution/boss/banner/jabezpos_banner_bg_xs_1.jpg");
+      }
+    }
+
+    .bg-jabezpos-2 {
+      background-image: url("../image/product-overview/restaurant-solution/boss/banner/banner_jabezpos_2.jpg");
+      background-size: cover;
+
+      a::after {
+        display: none;
+      }
+
+      a:hover::after {
+        display: none;
+      }
+      @include breakpoint($pad-down) {
+        background-image: url("../image/product-overview/restaurant-solution/boss/banner/jabezpos_banner_bg_xs_2.jpg");
+      }
+    }
+
+    .bg-jabezpos-1 {
+      height: 515px;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .bg-jabezpos-1 figcaption {
+      position: absolute;
+      width: 100%;
+      bottom: 80px;
+      height: 28%;
+      padding: 0;
+      background: none;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .bg-jabezpos {
+      background-size: cover;
+      padding: 5% 0 12%;
+      color: #fff;
+    }
+    @media (max-width: 990px) {
+      .bg-jabezpos {
+        padding: 20% 1px 100%;
+        text-align: center;
+      }
+    }
+
+    .flexslider .slides li button,
+    .flexslider .slides li h3,
+    .flexslider .slides li h5 {
+      opacity: 0;
+    }
+
+    .flexslider .slides li.flex-active-transition h3 {
+      animation: opacity 0.5s, up 0.5s;
+      -moz-animation: opacity 0.5s, up 0.5s;
+      -webkit-animation: opacity 0.5s, up 0.5s;
+      -o-animation: opacity 0.5s, up 0.5s;
+      opacity: 1;
+    }
+
+    .flexslider .slides li.flex-active-transition h5 {
+      animation: opacity 0.8s, up 0.8s;
+      -moz-animation: opacity 0.8s, up 0.8s;
+      -webkit-animation: opacity 0.8s, up 0.8s;
+      -o-animation: opacity 0.8s, up 0.8s;
+      opacity: 1;
+    }
+
+    .flexslider .slides li.flex-active-transition button {
+      animation: opacity 1.1s, up 1.1s;
+      -moz-animation: opacity 1.1s, up 1.1s;
+      -webkit-animation: opacity 1.1s, up 1.1s;
+      -o-animation: opacity 1.1s, up 1.1s;
+      opacity: 1;
+    }
+
+    .bg-jabezpos-2 {
+      height: 515px;
+      margin-top: 0;
+    }
+
+    .bg-jabezpos-2 figcaption {
+      position: absolute;
+      width: 100%;
+      bottom: 38%;
+      color: #fff;
+      font-weight: bold;
+    }
+    @media (min-width: 321px) {
+      .bg-jabezpos-1,
+      .bg-jabezpos-2 {
+        height: 610px;
+      }
+    }
+    @media (min-width: 421px) {
+      .bg-jabezpos-1,
+      .bg-jabezpos-2 {
+        height: 670px;
+      }
+    }
+    @media (min-width: 768px) {
+      .title-bg {
+        height: 350px;
+      }
+
+      .ec_title {
+        bottom: -200px;
+      }
+
+      .bg-jabezpos-1,
+      .bg-jabezpos-2 {
+        height: 1250px;
+      }
+
+      .b1pos-row {
+        margin-top: 0;
+      }
+
+      .bg-jabezpos-2 figcaption {
+        text-align: left;
+      }
+    }
+    @media (min-width: 991px) {
+      .bg-jabezpos-1 {
+        background-size: cover;
+        height: 600px;
+        text-align: center;
+      }
+
+      .bg-jabezpos-1 figcaption {
+        bottom: 0;
+      }
+
+      .bg-jabezpos-1 .more {
+        margin-top: 20px;
+      }
+    }
+    @media (min-width: 1201px) {
+      .bg-jabezpos-1,
+      .bg-jabezpos-2 {
+        height: 760px;
+      }
+    }
+    @media (max-width: 990px) {
+      .bg-jabezpos-1 figcaption {
+        height: 33%;
+      }
+
+      .bg-jabezpos-2 {
+        text-align: center;
+      }
+
+      .bg-jabezpos-2 figcaption {
+        height: 48%;
+      }
+    }
+  }
+}
+
+#page-peripherals {
+  .peripherals {
+    margin-top: 0;
+  }
+
+  .bg-black,
+  .bg-white {
+    padding: 0;
+  }
+}
+
+header .nav {
+  @include breakpoint($table-down) {
+    display: none;
+  }
+}
+
+.flex-direction-nav a {
+  z-index: 3;
+}
+
+table.style-table a {
+  display: inline-block;
+}
+
+table.style-table tbody a {
+  border: solid 1px #3590c7;
+  border-radius: 20px;
+  color: #3590c7;
+  padding: 6px 15px;
+
+  &:hover {
+    color: white;
+    background-color: #3590c7;
+  }
+}
+
+.info-list .summary {
+  min-height: 390px;
+}
+
+#page-aposA8 .bg-gray,
+#page-h10 .bg-gray,
+#page-v8 .bg-gray {
+  background-color: #f8f8f8;
+}
+
+#page-aposA8 {
+  #top {
+    padding-top: 0;
+  }
+
+  .aposA8-design-bg {
+    background-image: url("../image/hardware/aposA8_bg.jpg");
+  }
+}
+
+#page-news {
+  .news-list li:nth-child(odd) {
+    background-color: #f8f8f8;
+  }
+
+  .news-heading,
+  .news-year a:hover {
+    color: $color-main;
+  }
+
+  .news-banner {
+    background-image: none;
+  }
+
+  .top-bg.news-banner {
+    background-image: url("../image/news/news_banner.jpg");
+  }
+}
+
+#page-success {
+  ul.tab2 li a.active {
+    background-color: #202020;
+
+    &:after {
+      display: block;
+    }
+  }
+}
+
+
+#page-jabezpos .jabezpos_price table.style-table tbody tr:first-child td p {
+  @extend %small;
+}

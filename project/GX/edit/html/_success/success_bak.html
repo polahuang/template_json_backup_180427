@@ -1,0 +1,50 @@
+<t-include src="../../html/layout/sub-head.html" title="成功案例">
+
+  <body id="success" class="Controller-tab">
+    <!--  Modal -->
+    <section id="light-box" w3-include-html="../include/light-box.html"></section>
+    <!-- AD -->
+    <section id="ad_area" w3-include-html="../include/ad.html"></section>
+    <!-- HEADER -->
+    <header id="header" w3-include-html="../include/header.html" class="effect_fixed"></header>
+    <!-- 主選單 -->
+    <!-- <ol id="menu" class="mobile" w3-include-html="../include/menu.html"></ol> -->
+    <!-- 副選單 -->
+    <nav id="main-nav">
+      <article>
+        <h1>成功案例</h1>
+        <button><a href="#" data-toggle-nav="product-detail" class="toggle-nav-main"><span>導覽</span><img src="" alt=""></a></button>
+        <ol data-toggle-content="product-detail">
+          <li><a href="body" data-tab-nav="restaurant-solution_overview" class="active" title="">概觀</a></li>
+          <li><a href="body" data-tab-nav="webmenu" title="">消費者</a></li>
+          <li><a href="body" data-tab-nav="mobile-pos" title="">服務生</a></li>
+          <li><a href="body" data-tab-nav="counter" title="">櫃台</a></li>
+          <li><a href="body" data-tab-nav="kds" title="">廚房</a></li>
+          <li><a href="body" data-tab-nav="jabezpos" title="">老闆</a></li>
+        </ol>
+      </article>
+    </nav>
+    <main>
+      <!-- 上一頁/下一頁 -->
+      <section id="pagination_top" w3-include-html="../include/pagination-top.html" class="pagination-top"></section>
+      <!-- 麵包屑 -->
+      <section id="breadcrumb" w3-include-html="../include/breadcrumb.html" class="breadcrumb"></section>
+      <!-- ARTICLE -->
+      <article>
+        <section data-tab-content="restaurant-solution_overview" w3-include-html="../product-overview/restaurant-solution_overview.html" class="Controller-tab active"></section>
+        <section data-tab-content="webmenu" w3-include-html="../product-overview/webmenu.html" class="Controller-tab fiexd-tab"></section>
+        <section data-tab-content="mobile-pos" w3-include-html="../product-overview/mobile-pos.html" class="Controller-tab fiexd-tab"></section>
+        <section data-tab-content="counter" w3-include-html="../product-overview/counter.html" class="Controller-tab fiexd-tab"></section>
+        <section data-tab-content="kds" w3-include-html="../product-overview/kds.html" class="Controller-tab fiexd-tab"></section>
+        <section data-tab-content="jabezpos" w3-include-html="../product-overview/jabezpos.html" class="Controller-tab fiexd-tab"></section>
+      </article>
+      <!-- ASIDE -->
+      <aside></aside>
+      <!-- 頁數按鈕 -->
+      <section id="pagination_bottom" w3-include-html="../include/pagination-bottom.html" class="pagination-bottom"></section>
+    </main>
+    <!-- FOOTER -->
+    <footer id="footer" w3-include-html="../include/footer.html"></footer>
+  </body>
+
+</t-include>

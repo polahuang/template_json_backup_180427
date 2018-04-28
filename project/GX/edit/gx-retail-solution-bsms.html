@@ -1,0 +1,42 @@
+<t-include src="html/_layout/head.html" title="宣揚電腦 - 流通大師 BSMS">
+
+  <body id="retail-solution-bsms">
+    <!--  Modal -->
+    <section id="light-box" w3-include-html="html/include/light-box.html"></section>
+    <!-- AD -->
+    <section id="ad_area" w3-include-html="html/include/ad.html"></section>
+    <!-- HEADER -->
+    <header id="header" w3-include-html="html/include/header.html" class="effect_fixed"></header>
+    <!-- MWNU -->
+    <section id="menu" class="menu" w3-include-html="html/include/menu.html"></section>
+    <!-- SUB-MWNU -->
+    <nav id="main-nav" class="effect_fixed">
+      <article>
+        <h1>櫃台收銀機 - 連鎖多店版</h1>
+        <a href="#" data-toggle-nav="product-detail" class="toggle-nav-main"><span>導覽</span></a>
+        <ol data-toggle-content="product-detail">
+          <li><a href="body" data-tab-nav="bsms-overview" class="active">概觀介紹</a></li>
+          <li><a href="body" data-tab-nav="t80-hardware">硬體規格</a></li>
+        </ol>
+      </article>
+    </nav>
+    <main>
+      <!-- 上一頁/下一頁 -->
+      <section id="pagination_top" w3-include-html="html/include/pagination-top.html" class="pagination-top"></section>
+      <!-- 麵包屑 -->
+      <section id="breadcrumb" w3-include-html="html/include/breadcrumb.html" class="breadcrumb"></section>
+      <!-- ARTICLE -->
+      <article>
+        <section data-tab-content="bsms-overview" w3-include-html="html/product-overview/bsms_overview.html" class="active"></section>
+        <section data-tab-content="t80-hardware" w3-include-html="html/product-overview/t80_hardware.html"></section>
+      </article>
+      <!-- ASIDE -->
+      <aside></aside>
+      <!-- 頁數按鈕 -->
+      <section id="pagination_bottom" w3-include-html="html/include/pagination-bottom.html" class="pagination-bottom"></section>
+    </main>
+    <!-- FOOTER -->
+    <footer id="footer" w3-include-html="html/include/footer.html"></footer>
+  </body>
+
+</t-include>

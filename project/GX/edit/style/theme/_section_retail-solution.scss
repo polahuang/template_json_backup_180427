@@ -1,0 +1,538 @@
+
+//-----------------------------------------------------------------------------
+// 智能零售 - 概觀
+//------ -----------------------------------------------------------------------
+
+.retail-solution_overview_banner {
+  @extend .restaurant-solution_overview_banner;
+  background-image: url('../image/Generic/cloud-bg.png'), url("../image/Generic/bg-blue.jpg");
+  @include breakpoint($pad-down) {
+    background-size: 225% ,cover;
+  }
+
+  hgroup {
+    img {
+      @include img('retail-solution/title.png');
+    }
+  }
+
+  ol li {
+    &:nth-child(1) img {
+      @include img('Generic/banner-item-2.png');
+    }
+
+    &:nth-child(2) img {
+      @include img('Generic/banner-item-3.png');
+    }
+
+    &:nth-child(3) img {
+      @include img('Generic/banner-item-5.png');
+    }
+  }
+}
+
+.retail-solution_overview_case {
+  @extend %section;
+  background-color: #f6f8f7;
+
+  ol:nth-of-type(1) {
+    @extend %list-grid-3_desktop;
+
+    li {
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}) img {
+          @include bg('retail-solution/success-case-photo-#{$i}.jpg');
+        }
+      }
+
+      img {
+        @extend %scale-16x9;
+      }
+
+      figure {
+        background-color: white;
+        padding: 10px;
+        margin: 15px;
+        @include breakpoint($pad-down) {
+          margin: 15px 0;
+        }
+
+        h4 {
+          font-weight: bold;
+          padding: 10px 0;
+          border-bottom: solid 1px #ddd;
+        }
+
+        p {
+          margin: 15px 0;
+          @extend %h6;
+        }
+      }
+    }
+  }
+
+  ol:nth-of-type(2) {
+    @extend %list-grid-5_desktop;
+    @extend %list-grid-3_mobile;
+    margin-top: 60px;
+
+    li {
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}) img {
+          @include img('retail-solution/success-case-logo-#{$i}.png');
+        }
+      }
+
+      img {
+        @extend %scale-4x3;
+      }
+
+      figure {
+        padding: 0 10% 15px;
+        @include breakpoint($pad-down) {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.retail-solution_overview_solve {
+  @extend .restaurant-solution_overview_solve;
+
+  ol li {
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) img {
+        @include img('retail-solution/solve-#{$i}.png');
+      }
+    }
+
+    h5 {
+      color: #3071b9;
+    }
+  }
+}
+
+.retail-solution_overview_mobile {
+  @extend %section-long;
+  @include bg_desktop('retail-solution/bg-mobile.jpg');
+  @include bg_mobile('retail-solution/bg-mobile_mobile.jpg');
+  @extend %square-block;
+
+  > article > figure {
+    @include breakpoint($pad-up) {
+      float: right;
+    }
+  }
+  color: white;
+  $color: #00b9ef;
+
+  hgroup em {
+    color: $color;
+  }
+
+  ol {
+    @extend %list-grid-4_desktop;
+    @extend %list-grid-3_mobile;
+    max-width: inherit;
+
+    li {
+      span {
+        background-color: $color;
+      }
+      $color: white;
+
+      &:nth-child(1) img {
+        @include svg_payment($color);
+      }
+
+      &:nth-child(2) img {
+        @include svg_multivariate($color);
+      }
+
+      &:nth-child(3) img {
+        @include svg_invoice($color);
+      }
+    }
+  }
+
+  a[data-type="button"] {
+    @extend %button-light;
+  }
+}
+
+.retail-solution_overview_counter {
+  @extend %section-long;
+  @include bg_desktop('retail-solution/bg-counter.jpg');
+  @include bg_mobile('retail-solution/bg-counter_mobile.jpg');
+  @extend %square-block;
+
+  > article > figure {
+    @include breakpoint($pad-up) {
+      float: right;
+    }
+  }
+  color: $black;
+  $color: #3071b9;
+
+  hgroup em {
+    color: $color;
+  }
+
+  ol {
+    @extend %list-grid-4_desktop;
+    @extend %list-grid-3_mobile;
+    max-width: inherit;
+
+    li {
+      span {
+        background-color: $color;
+      }
+      $color: white;
+
+      &:nth-child(1) img {
+        @include svg_pos($color);
+      }
+
+      &:nth-child(2) img {
+        @include svg_monitor($color);
+      }
+
+      &:nth-child(3) img {
+        @include svg_tickets($color);
+      }
+    }
+  }
+
+  a[data-type="button"] {
+    @extend %button-dark;
+  }
+}
+
+.retail-solution_overview_backstage {
+  @extend %section-long;
+  @include bg_desktop('Generic/bg-cloud.jpg');
+  @include bg_mobile('Generic/bg-cloud_mobile.jpg');
+  @extend %square-block;
+
+  > article > figure {
+    @include breakpoint($pad-up) {
+      float: right;
+    }
+  }
+  color: $black;
+  $color: #3071b9;
+
+  hgroup em {
+    color: $color;
+  }
+
+  ol {
+    @extend %list-grid-4_desktop;
+    @extend %list-grid-3_mobile;
+    max-width: inherit;
+
+    li {
+      span {
+        background-color: $color;
+      }
+      $color: white;
+
+      &:nth-child(1) img {
+        @include svg_analysis($color);
+      }
+
+      &:nth-child(2) img {
+        @include svg_management-store($color);
+      }
+
+      &:nth-child(3) img {
+        @include svg_member($color);
+      }
+    }
+  }
+
+  a[data-type="button"] {
+    @extend %button-dark;
+  }
+}
+
+.retail-solution_overview_features {
+  .webmenu {
+    display: none;
+  }
+}
+//-----------------------------------------------------------------------------
+// 行動商務 - 概觀
+//------ -----------------------------------------------------------------------
+
+.retail-solution_mobile_banner {
+  @extend .mobile-pos_banner;
+  background-image: url('../image/Generic/cloud-bg.png'), url("../image/Generic/bg-blue-light.jpg");
+  $color: white;
+
+  > article ol li {
+    &:nth-child(1) span img {
+      @include svg_payment($color);
+    }
+
+    &:nth-child(2) span img {
+      @include svg_multivariate($color);
+    }
+
+    &:nth-child(3) span img {
+      @include svg_invoice($color);
+    }
+  }
+
+  article nav > ol li {
+    &.active,
+    &:hover {
+      &:nth-child(1) h5,
+      &:nth-child(2) h5 {
+        $color: #00b9f6;
+        color: $color;
+        border-color: $color;
+      }
+    }
+  }
+}
+
+.retail-solution_mobile_overview_situation {
+  @extend %section;
+  background-color: $section-bg;
+  $color: #0dbcef;
+
+  ol {
+    @extend %list-grid-4_desktop;
+    @extend %list-grid-3_mobile;
+
+    li {
+      &:nth-child(1) img {
+        @include svg_restaurant($color);
+      }
+
+      &:nth-child(2) img {
+        @include svg_retail($color);
+      }
+
+      &:nth-child(3) img {
+        @include svg_dog($color);
+      }
+
+      &:nth-child(4) img {
+        @include svg_drug($color);
+      }
+
+      &:nth-child(5) img {
+        @include svg_pay($color);
+      }
+
+      &:nth-child(6) img {
+        @include svg_home-delivery($color);
+      }
+
+      &:nth-child(7) img {
+        @include svg_cooperation($color);
+      }
+
+      &:nth-child(8) img {
+        @include svg_pig($color);
+      }
+
+      &:nth-child(9) img {
+        @include svg_e-supplier($color);
+      }
+
+      &:nth-child(10) img {
+        @include svg_delivery-2($color);
+      }
+
+      &:nth-child(11) img {
+        @include svg_business($color);
+      }
+
+      &:nth-child(12) img {
+        @include svg_medicine-box($color);
+      }
+
+      figure {
+        padding: 10% 15%;
+        @extend %middle_desktop;
+      }
+
+      span {
+        text-align: right;
+        width: 60px;
+      }
+
+      img {
+        @include scale(60px,60px);
+      }
+
+      h5 {
+        @include breakpoint($pad-up) {
+          text-align: left;
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+}
+
+body#retail-solution {
+  // 行動商務 - 軟體介紹
+  .mecr_software_banner {
+    //(文字色,背景色左,背景色右)
+    @include banner-gradient(white,#53cdf4,#01c0f4);
+  }
+  // 行動商務 - 簡易掃碼版 - 硬體介紹
+  .v1_hardware_banner {
+    //(文字色,背景色左,背景色右)
+    @include banner-gradient(white,#53cdf4,#01c0f4);
+
+    figure {
+      text-align: center;
+
+      hgroup ol {
+        @include block-v1(rgba(0, 184, 235, 0.99));
+      }
+    }
+  }
+  // 行動商務 - 進階感應版 - 硬體介紹
+  .x990_hardware_banner {
+    //(文字色,背景色左,背景色右)
+    @include banner-gradient(white,#53cdf4,#01c0f4);
+
+    figure {
+      hgroup ol {
+        @include block-x990(rgba(0, 184, 235, 0.99));
+      }
+    }
+  }
+  // 櫃檯 - 單機專業版
+  .b1pos_overview_content > figure:nth-child(1) > article > figure > figure img {
+    @include img('retail-solution/b1pos-img.png');
+  }
+}
+//-----------------------------------------------------------------------------
+// 櫃檯 - 概觀
+//------ -----------------------------------------------------------------------
+
+.retail-solution_counter_banner {
+  @extend .counter_banner;
+  background-image: url('../image/Generic/cloud-bg.png'), url("../image/Generic/bg-blue-dark.jpg");
+
+  article {
+    nav > ol li {
+      &:nth-child(2),
+      &:nth-child(3) {
+        span img {
+          @include img('retail-solution/b1pos.png');
+        }
+      }
+
+      &.active,
+      &:hover {
+        &:nth-child(1) h5,
+        &:nth-child(2) h5,
+        &:nth-child(3) h5 {
+          $color: #2b6ebd;
+          color: $color;
+          border-color: $color;
+          background-color: $section-bg;
+        }
+      }
+    }
+  }
+}
+
+.retail-solution_counter_overview_situation {
+  @extend .counter_overview_situation;
+
+  ol li {
+    &:nth-child(1) img {
+      @include img('Generic/it-1.jpg');
+    }
+
+    &:nth-child(2) img {
+      @include img('Generic/it-3.jpg');
+    }
+
+    &:nth-child(3) img {
+      @include img('Generic/it-6.jpg');
+    }
+  }
+}
+
+.retail-solution_counter_overview_b1pos-cloud {
+  @extend .counter_overview_b1pos-cloud;
+
+  figure hgroup ol li {
+    &:nth-child(3) img {
+      @include svg_date1(#4b63a9);
+    }
+  }
+
+  figure figure {
+    img {
+      @include img('retail-solution/b1pos-img.png');
+    }
+  }
+}
+
+.retail-solution_counter_overview_b1pos {
+  @extend .counter_overview_b1pos;
+
+  figure hgroup ol li {
+    &:nth-child(3) img {
+      @include svg_money1(#4b63a9);
+    }
+  }
+
+  figure figure {
+    img {
+      @include img('retail-solution/b1pos-img.png');
+    }
+  }
+}
+
+body#retail-solution {
+  // 櫃檯 - BPOS 軟體介紹
+  .counter_bpos_software_banner {
+    // 文字顏色,背景色左,背景色右
+    @include banner-gradient(white,#3f9fd9,#378fce);
+  }
+  // 櫃檯 - B1POS 軟體介紹
+  .b1pos_software_banner {
+    // 文字顏色,背景色左,背景色右
+    @include banner-gradient(white,#3f9fd9,#378fce);
+  }
+  // 櫃檯 - BPOS 硬體介紹
+  .bpos_hardware_banner {
+    // 文字顏色,背景色左,背景色右
+    @include banner-gradient(white,#3f9fd9,#378fce);
+
+    figure {
+      text-align: center;
+
+      hgroup ol {
+        @include block-t1(rgba(55, 143, 206, 0.99));
+      }
+    }
+  }
+  // 櫃檯 - B1POS 硬體介紹
+  .counter_b1pos_hardware_banner {
+    $color: #89b22b;
+    // 文字顏色,背景色左,背景色右
+    @include banner-gradient(white,#3f9fd9,#378fce);
+
+    figure {
+      text-align: center;
+
+      hgroup ol {
+        @include block-t80(rgba(55, 143, 206, 0.99));
+      }
+    }
+  }
+}

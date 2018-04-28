@@ -1,0 +1,48 @@
+//------------------------------------------------------------------------------
+// 主題色 變數
+//------------------------------------------------------------------------------
+$color-main: #3366cc;      // 主色 (自動帶有一個副色)
+$color-primary: #008fe4;   // 主色 相似色
+$color-minor: #f66401;     // 副色
+$color-warning: #c3171e;   // 警告色 (紅)
+$color-pass: #4CAF50;      // 通關色 (綠)
+$color-prompt: #f0c84c;    // 提示色 (黃)
+$color-sub-range: 120%;    // 副色 色相 (值範圍: -200% ~ 200%)
+$color-my: #67b76e;        // 增加 自定色
+//
+$color-white: #ffffff;     // 最亮
+$color-black: #232323;     // 最暗
+$color-dark: #dddddd;      // 灰
+$color-gray: #f8f8f8;      // 背景 灰
+//
+//------------------------------------------------------------------------------
+// 主題色 sass 自動色調
+//------------------------------------------------------------------------------
+// (中間: 主色)
+$color-main-light: lighten($color-main , 10%);   // 主色: 亮
+$color-main-lighter: lighten($color-main, 30%);  // 主色: 增亮
+$color-main-dark: darken($color-main, 10%);      // 主色: 暗
+$color-main-darker: darken($color-main, 35%);    // 主色: 增暗
+$color-main-darken: darken($color-main, 45%);    // 主色: 再增暗
+$color-main-saturate: saturate($color-main, 40%);// 主色: 增加 飽和度
+$color-main-desaturate: desaturate($color-main, 3%);// 主色: 減少 飽和度
+$color-main-hue: adjust-hue($color-main, $color-sub-range);// 主色: 色相
+// (左邊: 副色)
+$color-sub: $color-main-hue;                     // 副色 <<<<< 值來自 主色色相
+$color-sub-light: lighten($color-sub, 10%);      // 副色: 亮
+$color-sub-lighter: lighten($color-sub, 30%);    // 副色: 增亮
+$color-sub-dark: darken($color-sub, 20%);        // 副色: 暗
+$color-sub-darker: darken($color-sub, 30%);      // 副色: 增暗
+$color-sub-darken: darken($color-sub, 40%);      // 副色: 再增暗
+$color-sub-saturate: saturate($color-sub, 40%);  // 主色: 增加 飽和度
+$color-sub-desaturate: desaturate($color-sub, 3%);// 主色: 減少 飽和度
+$color-sub-hue: adjust-hue($color-sub, 120%);   // 主色: 色相 (值範圍: -200% ~ 200%)
+// (右邊: 自定色)
+$color-my-light: lighten($color-my, 10%);        // 自定: 亮
+$color-my-lighter: lighten($color-my, 30%);      // 自定: 增亮
+$color-my-dark: darken($color-my, 20%);          // 自定: 暗
+$color-my-darker: darken($color-my, 30%);        // 自定: 增暗
+$color-my-darken: darken($color-my, 40%);        // 自定: 再增暗
+$color-my-saturate: saturate($color-my, 30%);    // 自定: 增加 飽和度
+$color-my-desaturate: desaturate($color-my, 5%); // 自定: 減少 飽和度
+$color-my-hue: adjust-hue($color-my, 120%);      // 自定: 色相 (值範圍: -200% ~ 200%)

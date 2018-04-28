@@ -1,0 +1,251 @@
+#contact {
+	h1 {
+		font-size: 3.2em;
+		margin: 10px 0;
+	}
+
+	.gx-heading {
+		display: none;
+	}
+
+	form {}
+
+	fieldset {
+		/*margin-top: 10px;*/
+		border: none;
+		padding: 0;
+	}
+
+	input,
+	textarea {
+		width: 100%;
+		font-size: 1.1em;
+		margin-top: 5px;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+	}
+
+	input[type=email],
+	input[type=tel],
+	input[type=text] {
+		/*display: block;*/
+		height: 50px;
+		padding: 0 0 0 10px;
+		color: #032fa2;
+		margin-top: 10px;
+	}
+
+	input.error,
+	textarea.error {
+		border-color: #f30;
+		color: #f30;
+	}
+
+	.error-msg {
+		display: block;
+		visibility: visible;
+		color: #f30;
+		padding-left: 10px;
+		margin-top: 5px;
+	}
+
+	.select-style {
+		width: 100%;
+		height: 50px;
+		overflow: hidden;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		background-color: #fff;
+		background-image: url("../image/down.svg");
+		background-repeat: no-repeat;
+		background-size: 16px 16px;
+		background-position: 96% 50%;
+		margin-top: 10px;
+	}
+
+	.select-style.error {
+		border: 1px solid #f30;
+	}
+
+	.select-style.error select {
+		color: #f30;
+	}
+
+	select {
+		-webkit-appearance: none;
+		line-height: 50px;
+		padding: 0 10px;
+		border: none;
+		box-shadow: none;
+		background: transparent;
+		background-image: none;
+		font-size: 1.1em;
+		width: 100%;
+		color: #032fa2;
+	}
+
+	textarea {
+		padding: 10px;
+		margin-top: 10px;
+	}
+
+	.otherHelp {
+		margin-top: 10px;
+	}
+
+	input[type=checkbox] {
+		display: none;
+	}
+
+	input[type=checkbox] + label span {
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		margin: -1px 4px 0 0;
+		vertical-align: middle;
+		background: url("../image/checkbox.png") no-repeat;
+		background-size: contain;
+		cursor: pointer;
+	}
+
+	input[type=checkbox]:checked + label span {
+		background: url("../image/checkbox_checked.png") no-repeat;
+		background-size: contain;
+	}
+
+	#gx-code-input,
+	.gx-code,
+	.gx-reload {
+		display: inline-block;
+		vertical-align: sub;
+		width: 38%;
+	}
+
+	.gx-code {
+		vertical-align: bottom;
+		width: 118px;
+		margin-left: 5px;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+
+	.img-cus-n1 {
+		max-height: 485px;
+		width: auto;
+		max-width: 100%;
+		margin: 0 auto;
+	}
+
+	.gx-reload {
+		width: 18%;
+	}
+
+	button {
+		border: none;
+		background-color: transparent;
+		height: 50px;
+		line-height: 50px;
+	}
+
+	.btn-box {
+		margin-bottom: 40px;
+	}
+
+	input[type=reset],
+	input[type=submit] {
+		width: 49.1%;
+		float: left;
+		border-radius: 4px;
+		height: 50px;
+		line-height: 50px;
+	}
+
+	#contactUshtml input[type=submit] {
+		background-color: #0c3cbc;
+		color: #fff;
+		margin-left: 5px;
+	}
+
+	#contactUshtml input[type=submit]:hover {
+		background-color: #032fa2;
+	}
+
+	#contactUshtml input[type=reset] {
+		background-color: #ccc;
+	}
+
+	#contactUshtml input[type=reset]:hover {
+		background-color: #aaa;
+	}
+
+	#contactUshtml hr {
+		display: none;
+	}
+	/*br {
+	margin-top: 10px;
+	display: block;
+}*/
+
+	#contactUshtml br {
+		display: none;
+	}
+
+	#contactUshtml br.show {
+		display: block;
+	}
+
+	.mt-20 {
+		margin-top: 20px;
+	}
+
+	.mt-30 {
+		margin-top: 30px;
+	}
+
+	legend {
+		display: none;
+	}
+
+	.gx-title {
+		display: none;
+	}
+
+	.renew {
+		text-decoration: none;
+		color: #232323;
+		font-size: 1.1em;
+		display: block;
+	}
+
+	.renew:hover {
+		text-decoration: underline;
+		color: #032fa2;
+	}
+	/** 平板 **/
+	@media (min-width: 990px) {
+		.select-style {
+			background-position: 98% 50%;
+		}
+
+		#gx-code-input {
+			width: 25%;
+		}
+
+		.gx-reload {
+			width: 10%;
+		}
+	}
+	/** 桌面 **/
+	@media (min-width: 1201px) {
+		.select-style {
+			background-position: 99% 50%;
+		}
+
+		.gx-reload {
+			width: 10%;
+		}
+	}
+}

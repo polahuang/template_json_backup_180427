@@ -1,0 +1,746 @@
+//-----------------------------------------------------------------------------
+// 首頁 - 雲端智能 banner
+//-----------------------------------------------------------------------------
+
+.swap-content-box {
+  position: relative;
+  height: 660px;
+  @include breakpoint(max-width 1025px) {
+    height: 590px;
+  }
+  @include breakpoint($pad-down) {
+    height: 420px;
+  }
+
+  [data-hover-content] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    width: inherit;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+.banner-solution-food,
+.banner-solution-retail {
+  background-size: auto, cover;
+  background-position: center bottom, center center;
+  background-repeat: no-repeat, no-repeat;
+  color: white;
+  text-align: center;
+  @include breakpoint($pad-down) {
+    background-size: 290%, cover;
+  }
+
+  article {
+    @extend %content;
+  }
+
+  h6 {
+    color: $black;
+  }
+
+  hgroup {
+    margin-top: 80px;
+    margin-bottom: 150px;
+    @include breakpoint($pad-down) {
+      margin-top: 50px;
+    }
+  }
+
+  a {
+    @extend %btn-full;
+  }
+
+  .img {
+    transition: all 0.3s ease-in-out;
+  }
+
+  figure:hover {
+    cursor: pointer;
+
+    .img {
+      transform: translateY(-10px);
+    }
+
+    h6 {
+      color: $color-main;
+    }
+  }
+
+  button {
+    @extend %btn-full;
+  }
+}
+
+.banner-solution-food {
+  background-image: url("../image/Generic/cloud-bg.png"), url("../image/Generic/bg-red.jpg");
+
+  hgroup {
+    @include breakpoint($pad-down) {
+      margin-bottom: 20px;
+    }
+  }
+
+  ul {
+    @extend %list-grid-5_desktop;
+    @extend %list-grid-3_mobile;
+
+    li {
+      &:nth-child(1) .img {
+        @include img('Generic/banner-item-1.png');
+      }
+
+      &:nth-child(2) .img {
+        @include img('Generic/banner-item-2.png');
+      }
+
+      &:nth-child(3) .img {
+        @include img('Generic/banner-item-3.png');
+      }
+
+      &:nth-child(4) .img {
+        @include img('Generic/banner-item-4.png');
+        @include breakpoint($pad-down) {
+          margin-top: -15%;
+        }
+      }
+
+      &:nth-child(5) .img {
+        @include img('Generic/banner-item-5.png');
+        @include breakpoint($pad-down) {
+          margin-top: -15%;
+        }
+      }
+    }
+  }
+}
+
+.banner-solution-retail {
+  background-image: url("../image/Generic/cloud-bg.png"), url("../image/Generic/bg-blue.jpg");
+
+  hgroup {
+    @include breakpoint($pad-down) {
+      margin-bottom: 50px;
+    }
+  }
+
+  ul {
+    @extend %list-grid-5_desktop;
+    @extend %list-grid-3_mobile;
+    @include breakpoint($pad-down) {
+      margin-top: 100px;
+    }
+
+    li {
+      &:nth-child(1) .img {
+        @include img('Generic/banner-item-2.png');
+      }
+
+      &:nth-child(2) .img {
+        @include img('Generic/banner-item-3.png');
+      }
+
+      &:nth-child(3) .img {
+        @include img('Generic/banner-item-5.png');
+      }
+    }
+  }
+}
+// 按鈕
+
+.banner-solution-nav {
+  text-align: center;
+  background: white;
+  position: relative;
+  margin-bottom: 25px;
+
+  article {
+    @extend %content;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 10px;
+    @include breakpoint($pad-down) {
+      margin: 0 5px;
+    }
+    // 框線顏色,文字顏色,hover文字顏色,hover背景顏色
+    $border: $black;
+    $color: $black;
+    $reverse: white;
+    $active: $color-main;
+
+    a[data-type="button"] {
+      color: $color;
+      padding: 10px 40px 10px 60px;
+      border: solid 1px $border;
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.1s ease-in;
+      @extend %h5;
+      @include breakpoint($pad-down) {
+        padding: 10px 8px 10px 35px;
+      }
+
+      &:hover {
+        background-color: $active;
+        color: $reverse;
+        border-color: $active;
+      }
+    }
+
+    &:nth-child(1) a[data-type="button"] {
+      &:before {
+        @include svg_restaurant1($border);
+        @include svg-icon-before;
+      }
+
+      &:hover {
+        &:before {
+          @include svg_restaurant1($reverse);
+          @include svg-icon-before;
+        }
+      }
+    }
+
+    &:nth-child(2) a[data-type="button"] {
+      &:before {
+        @include svg_retail1($border);
+        @include svg-icon-before;
+      }
+
+      &:hover {
+        &:before {
+          @include svg_retail1($reverse);
+          @include svg-icon-before;
+        }
+      }
+    }
+  }
+}
+// 動畫
+
+.banner-solution-food-content,
+.banner-solution-retail-content {
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+
+  &.active {
+    opacity: 1;
+  }
+}
+//-----------------------------------------------------------------------------
+// 首頁 - 最新消息
+//-----------------------------------------------------------------------------
+
+.index_news {
+  background-color: $section-bg;
+  text-align: left;
+
+  article {
+    @extend %content;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  $height-m: 50px;
+  $height-s: 40px;
+
+  hgroup h4 {
+    $list-1: $color-main 0%, $color-main 85%, $section-bg 85%, $section-bg 100%;
+    @include gradient(470deg, $list-1);
+    color: white;
+    display: inline-block;
+    float: left;
+    @extend %p;
+    height: $height-m;
+    line-height: $height-m;
+    padding: 0 $height-s 0 25px;
+    @include breakpoint($pad-down) {
+      height: $height-s;
+      line-height: $height-s;
+      padding: 0 20px 0 15px;
+    }
+  }
+
+  #abgne_marquee {
+    position: relative;
+    overflow: hidden;
+    height: $height-m;
+    @include breakpoint($pad-down) {
+      height: $height-s;
+    }
+
+    ol {
+      position: absolute;
+
+      a {
+        display: block;
+        overflow: hidden;
+        font-size: 1em;
+        height: $height-m;
+        line-height: $height-m;
+        padding-left: 10px;
+        @include breakpoint($pad-down) {
+          height: $height-s;
+          line-height: $height-s;
+        }
+      }
+    }
+  }
+}
+//-----------------------------------------------------------------------------
+// 首頁 - 輪播 benner
+//-----------------------------------------------------------------------------
+
+.index_main-slider {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 10px;
+
+  &:hover {
+    .owl-nav {
+      .owl-next {
+        right: 0;
+        opacity: 1;
+      }
+
+      .owl-prev {
+        left: 0;
+        opacity: 1;
+      }
+    }
+  }
+
+  figure {
+    &.img-1,
+    &.img-2,
+    &.img-3 {
+      height: 650px;
+      @include breakpoint(max-width 1200px) {
+        height: 560px;
+      }
+
+      > article {
+        padding-bottom: 0;
+        @include breakpoint($pad-down) {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+
+      hgroup {
+        h3 {
+          color: $color-main;
+        }
+      }
+    }
+
+    &.img-1 {
+      @extend %section;
+      @extend %section-img-right;
+
+      img {
+        @include img('index/banner-1.jpg');
+      }
+
+      hgroup h4 {
+        @include breakpoint($pad-down) {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    &.img-2 {
+      @extend %section;
+
+      hgroup {
+        margin: 0;
+      }
+
+      article {
+        @include breakpoint($pad-up) {
+          padding-top: 2%;
+        }
+      }
+
+      img {
+        @include img_desktop('index/banner-2.jpg');
+        @include img_mobile('index/banner-2_xs.jpg');
+        @extend %scale-2x1_desktop;
+        @extend %scale-1x1-4_mobile;
+      }
+    }
+
+    &.img-3 {
+      @extend %section;
+      @extend %section-img-right;
+
+      article > figure {
+        hgroup img {
+          @include img('index/banner-31.jpg');
+          @extend %scale-5x1;
+        }
+        h3 {
+          @include breakpoint($pad-down) {
+            margin-top: 10px;
+          }
+        }
+
+        h4 {
+          margin-bottom: 25px;
+          @include breakpoint($pad-down) {
+            margin-bottom: 0;
+            margin-top: 10px;
+          }
+        }
+
+        ol {
+          @include breakpoint($pad-down) {
+            display: none;
+          }
+
+          li {
+            @extend %clearfix;
+            @include breakpoint($pad-down) {
+              margin-bottom: 15px;
+            }
+
+            .item-name,
+            .prize,
+            .year {
+              display: inline-block;
+              vertical-align: top;
+              padding-left: 10px;
+              text-align: left;
+              font-size: 90%;
+              @include breakpoint($pad-down) {
+                font-size: 85%;
+              }
+            }
+
+            .year {
+              @extend %col-2_desktop;
+              @extend %col-3_mobile;
+            }
+
+            .item-name {
+              @extend %col-6_desktop;
+              @extend %col-5_mobile;
+            }
+
+            .prize {
+              @extend %col-4;
+            }
+          }
+        }
+
+        figure img {
+          @include img('index/banner-3.jpg');
+        }
+      }
+    }
+  }
+  // owl
+  .owl-nav {
+    @extend %owl-nav-cuboid;
+
+    .owl-next {
+      transition: all 0.3s ease-in-out;
+      right: -10%;
+      opacity: 0;
+    }
+
+    .owl-prev {
+      transition: all 0.3s ease-in-out;
+      left: -10%;
+      opacity: 0;
+    }
+  }
+
+  .owl-dots {
+    @extend %owl-dots-cuboid;
+  }
+}
+//-----------------------------------------------------------------------------
+// 首頁 - 企業使用
+//-----------------------------------------------------------------------------
+
+.index_success {
+  @extend %section;
+  background-color: $section-bg;
+
+  ol {
+    @extend %list-grid-6_desktop;
+    @extend %list-grid-4_mobile;
+
+    li {
+      @for $i from 1 through 30 {
+        &:nth-child(#{$i}) img {
+          @include img('index/success_#{$i + 3}.png');
+        }
+      }
+
+      img {
+        @extend %scale-3x2_desktop;
+        @extend %scale-4x3_mobile;
+      }
+    }
+  }
+}
+//-----------------------------------------------------------------------------
+// 首頁 - 套裝產品
+//-----------------------------------------------------------------------------
+
+.index_products {
+  background-color: $section-bg;
+}
+
+.index_products-banner {
+  @extend %section;
+  @extend %section-img-right;
+  $list-1: #7194db 0%, #7194db 75%, $section-bg 75%, $section-bg 100%;
+  @include gradient(top, $list-1);
+  color: white;
+
+  article {
+    padding-bottom: 0;
+
+    > figure {
+      figure:first-child {
+        @include breakpoint($pad-up) {
+          left: 25%;
+        }
+      }
+    }
+  }
+
+  img {
+    @include img('index/products-img.png');
+    @extend %scale-4x3;
+    position: relative;
+    z-index: 1;
+    @include breakpoint($pad-up) {
+      right: -20%;
+    }
+  }
+}
+
+.index_products-nav {
+  @extend %content;
+  border-bottom: solid 1px #ddd;
+  position: relative;
+  top: -100px;
+  @include breakpoint($pad-down) {
+    top: 0;
+  }
+
+  li {
+    display: inline-block;
+
+    a {
+      @extend %h5;
+      padding: 5px 25px;
+      border-bottom: solid 4px #ddd;
+
+      &.active,
+      &:hover {
+        border-color: $color-main;
+        color: $color-main;
+      }
+    }
+  }
+}
+
+.products-restaurant,
+.products-retail {
+  position: relative;
+  top: -50px;
+  @include breakpoint($pad-down) {
+    top: 15px;
+    padding-bottom: 50px;
+  }
+
+  figure {
+    background-color: white;
+    position: relative;
+    box-shadow: rgba(100,100,100,0.1) 0 0 5px 0;
+    top: 0;
+    margin-top: 10px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+
+    &:hover {
+      top: -3px;
+      z-index: 2;
+      box-shadow: rgba(51,51,51,0.3) 2px 2px 16px 0;
+    }
+
+    hgroup {
+      border-top: solid 1px #ddd;
+      padding: 15px 0;
+
+      h4 {
+        @extend %h5;
+      }
+
+      p {
+        color: #7194db;
+      }
+    }
+
+    span {
+      display: block;
+      margin: 7% 10%;
+    }
+
+    a {
+      @extend %btn-full;
+    }
+  }
+
+  .t1 img {
+    @include img('index/products-t1.jpg');
+  }
+
+  .retail img {
+    @include img('index/products-retail.jpg');
+  }
+
+  .v1 img {
+    @include img('index/products-v1.jpg');
+  }
+
+  .x990 img {
+    @include img('index/products-x990.jpg');
+  }
+
+  .restaurant img {
+    @include img('index/products-restaurant.jpg');
+  }
+
+  .webmenu img {
+    @include img('index/products-webmenu.jpg');
+  }
+  // owl
+  .owl-nav {
+    @extend %owl-nav-square;
+  }
+
+  .owl-dots {
+    @extend %owl-dots-cuboid;
+  }
+}
+//-----------------------------------------------------------------------------
+// 首頁 - 雲端店管利器
+//-----------------------------------------------------------------------------
+
+.index_jabezpos {
+  @extend %section;
+  @extend %section-img-right;
+  @extend %section-img-up_mobile;
+  @include bg("index/jabezpos-bg.jpg");
+  background-position-y: 25px;
+  background-color: #49aff5;
+  @include breakpoint($pad-down) {
+    background-position-y: 55px;
+  }
+
+  figure {
+    @include breakpoint($pad-up) {
+      text-align: left;
+    }
+  }
+
+  hgroup {
+    @include breakpoint($pad-up) {
+      padding-top: 10%;
+    }
+    @include breakpoint($pad-down) {
+      margin-bottom: 0;
+    }
+
+    h5 {
+      color: #636363;
+    }
+
+    h2 {
+      color: #3366cc;
+    }
+
+    ol.content li {
+      display: inline-block;
+      @extend %p;
+
+      &:before {
+        content: '/';
+        display: inline-block;
+        margin: 0 5px;
+      }
+
+      &:first-child:before {
+        display: none;
+      }
+    }
+
+    ol.button-group {
+      margin-top: 45px;
+
+      li {
+        display: inline-block;
+        margin-right: 15px;
+
+        &:first-child a[data-type="button"] {
+          @extend %button-dark_m_desktop;
+          @extend %button-dark_s_mobile;
+        }
+
+        &:last-child a[data-type="button"] {
+          @extend %button-main_m_desktop;
+          @extend %button-main_s_mobile;
+        }
+      }
+    }
+  }
+
+  img {
+    @include img("index/jabezpos-img.png");
+    @extend %scale-4x3_desktop;
+    @extend %scale-1x1_mobile;
+  }
+}
+//-----------------------------------------------------------------------------
+// 首頁 - 簡單 3 步驟
+//-----------------------------------------------------------------------------
+
+.index_step {
+  @extend %section;
+  background-color: $section-bg;
+
+  ol {
+    @extend %event;
+    @extend %list-grid-3_desktop;
+    @extend %list-grid-1_mobile;
+
+    li {
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}) img {
+          @include img('index/step-#{$i}.png');
+        }
+      }
+    }
+  }
+}
