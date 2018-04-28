@@ -297,6 +297,8 @@ body {
   left: 0;
   color: $black;
   transition: all $menu-effect-time ease-in-out;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translate3d(0,0,0);
 
   > * {
     background-color: $body-bg-color;
