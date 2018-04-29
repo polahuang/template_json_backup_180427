@@ -296,7 +296,8 @@ body {
   position: relative;
   left: 0;
   color: $black;
-  overflow: auto;
+  overflow: scroll;
+  height: 100%;
   //transition: all $menu-effect-time ease-in-out;
 
   > * {
