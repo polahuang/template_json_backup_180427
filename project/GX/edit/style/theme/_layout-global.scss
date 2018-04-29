@@ -296,8 +296,8 @@ body {
   position: relative;
   left: 0;
   color: $black;
-  overflow: scroll;
-  height: 100%;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translate3d(0,0,0);
   //transition: all $menu-effect-time ease-in-out;
 
   > * {
