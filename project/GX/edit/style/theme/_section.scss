@@ -651,7 +651,7 @@ $src: 'product-overview/restaurant-solution'; //
   background-color: $section-bg;
 
   > figure:nth-child(1) {
-    @extend .mobile-pos_overview_e-feature;
+    //@extend .mobile-pos_overview_e-feature;
   }
 
   > figure:nth-child(2) {
@@ -1093,7 +1093,7 @@ $src: 'product-overview/restaurant-solution'; //
 
   dl {
     @extend %dl;
-    @extend %dl-spec;
+    //@extend %dl-spec;
 
     dd,
     dt {
